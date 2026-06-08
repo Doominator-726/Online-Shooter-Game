@@ -222,30 +222,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Model:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Model:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_p0pqo"]
 resource_name = "Shoot"
@@ -273,30 +249,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Model:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0.1, 0.326), Vector3(0, 0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Model:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.16666667, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.35953784, 0, 0), Vector3(0, 0, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5h582"]
 _data = {
@@ -305,18 +257,19 @@ _data = {
 }
 
 [node name="Super Shotgun" unique_id=270485858 node_paths=PackedStringArray("weapon_model") instance=ExtResource("1_hvfpk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 ammo_type = "Shells"
 weapon_model = NodePath("Model/Shotgun_2/Shotgun_2")
 
 [node name="Shotgun_2" type="Node3D" parent="Model" parent_id_path=PackedInt32Array(987185032) index="0" unique_id=1402189185]
-transform = Transform3D(-0.0054874197, 0, 0.18992075, 0, 0.19000003, 0, -0.18992075, 0, -0.0054874197, 0.12130672, 0.2099536, -0.017020881)
+transform = Transform3D(-0.0054874197, 0, 0.18992075, 0, 0.19000003, 0, -0.18992075, 0, -0.0054874197, 0, 0, 0)
 
 [node name="Shotgun_2" type="MeshInstance3D" parent="Model/Shotgun_2" index="0" unique_id=1413622646]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
 mesh = SubResource("ArrayMesh_qwyl3")
 
 [node name="Shot Particles2" type="GPUParticles3D" parent="Model" parent_id_path=PackedInt32Array(987185032) index="1" unique_id=769978354]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08717718, 0.26844716, -0.85115284)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020113058, 0.041801006, -0.8115808)
 layers = 2
 emitting = false
 amount = 26
@@ -328,7 +281,7 @@ process_material = SubResource("ParticleProcessMaterial_gc8lv")
 draw_pass_1 = SubResource("QuadMesh_3v6lo")
 
 [node name="Shot Particles" type="GPUParticles3D" parent="Model" parent_id_path=PackedInt32Array(987185032) index="2" unique_id=1289942571]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04906921, 0.26844716, -0.85115284)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.058221027, 0.041801006, -0.8115808)
 layers = 2
 emitting = false
 amount = 26

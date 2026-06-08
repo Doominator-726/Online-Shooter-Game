@@ -141,34 +141,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Model:position")
+tracks/0/path = NodePath("Model/GPUParticles3D:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Model:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Model/GPUParticles3D:emitting")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -222,19 +198,20 @@ _data = {
 }
 
 [node name="Rifle" unique_id=790685130 node_paths=PackedStringArray("weapon_model") instance=ExtResource("1_kavtu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 ammo_type = "Bullets"
 attack_range = 40.0
 weapon_model = NodePath("Model/AssaultRifle2_1/AssaultRifle2_1")
 
 [node name="AssaultRifle2_1" type="Node3D" parent="Model" parent_id_path=PackedInt32Array(987185032) index="0" unique_id=40683990]
-transform = Transform3D(-0.3168631, 0, 16.997046, 0, 17, 0, -16.997046, 0, -0.3168631, -0.13495964, 0.11362177, -0.25089902)
+transform = Transform3D(-0.3168631, 0, 16.997046, 0, 17, 0, -16.997046, 0, -0.3168631, 0, 0, 0)
 
 [node name="AssaultRifle2_1" type="MeshInstance3D" parent="Model/AssaultRifle2_1" index="0" unique_id=2026142655]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_g317w")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Model" parent_id_path=PackedInt32Array(987185032) index="1" unique_id=1810080876]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16057783, 0.1800155, -0.89215356)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026829243, 0.1800155, -0.6990287)
 layers = 2
 emitting = false
 amount = 1

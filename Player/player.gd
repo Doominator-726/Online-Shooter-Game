@@ -32,10 +32,10 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 # Weapons
 @onready var weapon_0 = get_node("Character_01/GeneralSkeleton/BoneAttachment3D/Knife")
-@onready var weapon_1 = get_node("Head/Camera3D/Pistol")
-@onready var weapon_2 = get_node("Head/Camera3D/Automatic Gun")
-@onready var weapon_3 = get_node("Head/Camera3D/Shotgun")
-@onready var weapon_4 = get_node("Head/Camera3D/Super Shotgun")
+@onready var weapon_1 = get_node("Character_01/GeneralSkeleton/BoneAttachment3D/Pistol")
+@onready var weapon_2 = get_node("Character_01/GeneralSkeleton/BoneAttachment3D/Automatic Gun")
+@onready var weapon_3 = get_node("Character_01/GeneralSkeleton/BoneAttachment3D/Shotgun")
+@onready var weapon_4 = get_node("Character_01/GeneralSkeleton/BoneAttachment3D/Super Shotgun")
 
 @onready var current_weapon = null
 @onready var weapons = [weapon_0, weapon_1]
@@ -63,6 +63,8 @@ func _ready():
 	camera.current = is_multiplayer_authority()
 	subviewport_camera.current = is_multiplayer_authority()
 	
+	_build_weapon_maps()
+	
 	if not is_multiplayer_authority(): return
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -77,7 +79,6 @@ func _ready():
 	weapon_3.set_to_hud_visibility()
 	weapon_4.set_to_hud_visibility()
 		
-	_build_weapon_maps()
 	switch_weapon(current_weapon)
 
 func _unhandled_input(event):
@@ -278,7 +279,7 @@ func _sync_switch_weapon(weapon_index: int):
 	# Return if not server so other players don't equip weapon
 	if not is_multiplayer_authority(): return
 	
-	var weapon = index_weapon_map.get(weapon_index, null)
+	var weapon = index_weapon_map.get(weapon_index)
 	if weapon:
 		switch_weapon(weapon)
 		
@@ -286,11 +287,13 @@ func switch_weapon(new_weapon):
 	
 	# If you switch to a new weapon you have, it will unequip the current one and equip a new one
 	# Also makes sure switch does not happen while animation is playing
-	if new_weapon in weapons and current_weapon != new_weapon and !$Character_01/AnimationPlayer.is_playing():
+	if new_weapon in weapons and current_weapon != new_weapon:
 		
 		if current_weapon:
+			if weapon_state_machine.get_current_node() != "Knife Idle":
+				return
 			unequip_weapon()
-			await $Character_01/AnimationPlayer.animation_finished
+			await $Character_01/AnimationTree.animation_finished
 		equip_weapon(new_weapon)
 		
 func unequip_weapon():
@@ -301,6 +304,7 @@ func unequip_weapon():
 		else:
 			_sync_unequip_anim(idx)
 	current_weapon.is_selected = false
+	print("DONE")
 	
 func equip_weapon(weapon):
 	var idx = weapon_index_map.get(weapon, -1)
@@ -315,33 +319,16 @@ func equip_weapon(weapon):
 	
 @rpc("any_peer", "call_local", "reliable")
 func _sync_unequip_anim(weapon_index: int):
-	match weapon_index:
-		0: 
-			weapon_state_machine.travel("Lower Knife")
-			#$Character_01/AnimationPlayer.play("Lower Knife")
-		1: 
-			$"Weapon Animations".play("Lower Pistol")
-		2: 
-			$"Weapon Animations".play("Lower Automatic Gun")
-		3: 
-			$"Weapon Animations".play("Lower Shotgun")
-		4: 
-			$"Weapon Animations".play("Lower Super Shotgun")
-
+	
+	weapon_state_machine.travel("Lower Knife")
+	await $Character_01/AnimationTree.animation_finished
+	index_weapon_map.get(weapon_index).visible = false
+	
 @rpc("any_peer", "call_local", "reliable")
 func _sync_equip_anim(weapon_index: int):
-	match weapon_index:
-		0: 
-			weapon_state_machine.travel("Raise Knife")
-			#$Character_01/AnimationPlayer.play_backwards("Lower Knife")
-		1: 
-			$"Weapon Animations".play_backwards("Lower Pistol")
-		2: 
-			$"Weapon Animations".play_backwards("Lower Automatic Gun")
-		3: 
-			$"Weapon Animations".play_backwards("Lower Shotgun")
-		4: 
-			$"Weapon Animations".play_backwards("Lower Super Shotgun")
+	
+	weapon_state_machine.travel("Raise Knife")
+	index_weapon_map.get(weapon_index).visible = true
 	
 func add_new_weapon(new_weapon):
 	# If new weapon then it switches, if not ammo is obtained

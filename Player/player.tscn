@@ -262,18 +262,6 @@ tracks/0/path = NodePath("%GeneralSkeleton:RightUpperArm")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0.07394456, 0.6048318, -0.09827628, -0.7867989, 0.45, 1, -0.06392508, -0.70721763, 0.11664877, 0.69437015, 1, 1, 0.07394456, 0.6048318, -0.09827628, -0.7867989)
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("%GeneralSkeleton/BoneAttachment3D/Knife:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_pisgm"]
 resource_name = "Melee Attack"
@@ -298,18 +286,6 @@ tracks/2/path = NodePath("%GeneralSkeleton:RightHand")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0.12560998, -0.7052461, -0.2277162, 0.65954185, 0.5, 1, -0.39989108, 0.8601354, -0.071685016, -0.30840805, 1, 1, 0.12560998, -0.7052461, -0.2277162, 0.65954185)
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("%GeneralSkeleton/BoneAttachment3D/Knife:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_gu6f8"]
 length = 0.001
@@ -432,18 +408,6 @@ tracks/16/path = NodePath("%GeneralSkeleton:RightHand")
 tracks/16/interp = 1
 tracks/16/loop_wrap = true
 tracks/16/keys = PackedFloat32Array(0, 1, 0.12560998, -0.7052461, -0.2277162, 0.65954185)
-tracks/17/type = "value"
-tracks/17/imported = false
-tracks/17/enabled = true
-tracks/17/path = NodePath("%GeneralSkeleton/BoneAttachment3D/Knife:visible")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_o28un"]
 resource_name = "Raise Knife"
@@ -454,18 +418,6 @@ tracks/0/path = NodePath("%GeneralSkeleton:RightUpperArm")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0.0059461175, 0.9874481, -0.14514573, 0.061996173, 0.99999994, 1, -0.07394456, -0.6048318, 0.09827628, 0.7867989)
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("%GeneralSkeleton/BoneAttachment3D/Knife:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, true]
-}
 
 [sub_resource type="Animation" id="Animation_dkpta"]
 resource_name = "Walk"
@@ -594,7 +546,7 @@ graph_offset = Vector2(-78, 98)
 
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_5htga"]
 filter_enabled = true
-filters = ["%GeneralSkeleton/BoneAttachment3D/Knife:visible", "%GeneralSkeleton:Chest", "%GeneralSkeleton:Head", "%GeneralSkeleton:Hips", "%GeneralSkeleton:LeftHand", "%GeneralSkeleton:LeftLowerArm", "%GeneralSkeleton:LeftShoulder", "%GeneralSkeleton:LeftUpperArm", "%GeneralSkeleton:RightHand", "%GeneralSkeleton:RightLowerArm", "%GeneralSkeleton:RightShoulder", "%GeneralSkeleton:RightUpperArm", "%GeneralSkeleton:Spine", "GeneralSkeleton:RightUpperArm"]
+filters = ["%GeneralSkeleton/BoneAttachment3D/Knife:visible", "%GeneralSkeleton/BoneAttachment3D:visible", "%GeneralSkeleton:Chest", "%GeneralSkeleton:Head", "%GeneralSkeleton:Hips", "%GeneralSkeleton:LeftHand", "%GeneralSkeleton:LeftLowerArm", "%GeneralSkeleton:LeftShoulder", "%GeneralSkeleton:LeftUpperArm", "%GeneralSkeleton:RightHand", "%GeneralSkeleton:RightLowerArm", "%GeneralSkeleton:RightShoulder", "%GeneralSkeleton:RightUpperArm", "%GeneralSkeleton:Spine", "GeneralSkeleton:RightUpperArm"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dkpta"]
 animation = &"Knife Idle"
@@ -614,11 +566,6 @@ xfade_time = 0.2
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n471f"]
-xfade_time = 0.2
-switch_mode = 2
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7emwf"]
 switch_mode = 2
 advance_mode = 2
@@ -632,13 +579,13 @@ states/End/position = Vector2(897, 101)
 "states/Melee Attack/node" = SubResource("AnimationNodeAnimation_hshwv")
 "states/Melee Attack/position" = Vector2(318, 204)
 "states/Raise Knife/node" = SubResource("AnimationNodeAnimation_lfmf2")
-"states/Raise Knife/position" = Vector2(496, 118)
+"states/Raise Knife/position" = Vector2(499, 118)
 states/Start/position = Vector2(203, 60)
-transitions = ["Raise Knife", "Knife Idle", SubResource("AnimationNodeStateMachineTransition_o28un"), "Knife Idle", "Lower Knife", SubResource("AnimationNodeStateMachineTransition_n471f"), "Melee Attack", "Knife Idle", SubResource("AnimationNodeStateMachineTransition_7emwf")]
+transitions = ["Raise Knife", "Knife Idle", SubResource("AnimationNodeStateMachineTransition_o28un"), "Melee Attack", "Knife Idle", SubResource("AnimationNodeStateMachineTransition_7emwf")]
 graph_offset = Vector2(-42, 7)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_p5o4e"]
-graph_offset = Vector2(-847.2362, 660.6365)
+graph_offset = Vector2(-844.1088, 750.33875)
 nodes/output/position = Vector2(-400, 880)
 nodes/BaseStateMachine/node = SubResource("AnimationNodeStateMachine_5htga")
 nodes/BaseStateMachine/position = Vector2(-940, 900)
@@ -715,7 +662,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera3D/Automatic Gun:visible")
+tracks/0/path = NodePath("Character_01/GeneralSkeleton/BoneAttachment3D/Automatic Gun:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -727,7 +674,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera3D/Automatic Gun:position")
+tracks/1/path = NodePath("Character_01/GeneralSkeleton/BoneAttachment3D/Automatic Gun:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -759,7 +706,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera3D/Pistol:visible")
+tracks/0/path = NodePath("Character_01/GeneralSkeleton/BoneAttachment3D/Pistol:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -771,7 +718,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera3D/Pistol:position")
+tracks/1/path = NodePath("Character_01/GeneralSkeleton/BoneAttachment3D/Pistol:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -787,7 +734,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera3D/Shotgun:visible")
+tracks/0/path = NodePath("Character_01/GeneralSkeleton/BoneAttachment3D/Shotgun:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -799,7 +746,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera3D/Shotgun:position")
+tracks/1/path = NodePath("Character_01/GeneralSkeleton/BoneAttachment3D/Shotgun:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -815,7 +762,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera3D/Super Shotgun:position")
+tracks/0/path = NodePath("Character_01/GeneralSkeleton/BoneAttachment3D/Super Shotgun:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -827,7 +774,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera3D/Super Shotgun:visible")
+tracks/1/path = NodePath("Character_01/GeneralSkeleton/BoneAttachment3D/Super Shotgun:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -842,7 +789,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Head/Camera3D/Automatic Gun:rotation")
+tracks/0/path = NodePath("Character_01/GeneralSkeleton/BoneAttachment3D/Automatic Gun:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -854,7 +801,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Head/Camera3D/Shotgun:rotation")
+tracks/1/path = NodePath("Character_01/GeneralSkeleton/BoneAttachment3D/Shotgun:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -866,7 +813,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Head/Camera3D/Shotgun:visible")
+tracks/2/path = NodePath("Character_01/GeneralSkeleton/BoneAttachment3D/Shotgun:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -878,7 +825,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Head/Camera3D/Shotgun:position")
+tracks/3/path = NodePath("Character_01/GeneralSkeleton/BoneAttachment3D/Shotgun:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -902,7 +849,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Head/Camera3D/Pistol:visible")
+tracks/5/path = NodePath("Character_01/GeneralSkeleton/BoneAttachment3D/Pistol:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -914,7 +861,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Head/Camera3D/Automatic Gun:visible")
+tracks/6/path = NodePath("Character_01/GeneralSkeleton/BoneAttachment3D/Automatic Gun:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -926,7 +873,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Head/Camera3D/Automatic Gun:position")
+tracks/7/path = NodePath("Character_01/GeneralSkeleton/BoneAttachment3D/Automatic Gun:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -938,7 +885,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Head/Camera3D/Pistol:position")
+tracks/8/path = NodePath("Character_01/GeneralSkeleton/BoneAttachment3D/Pistol:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -950,7 +897,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Head/Camera3D/Super Shotgun:position")
+tracks/9/path = NodePath("Character_01/GeneralSkeleton/BoneAttachment3D/Super Shotgun:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -962,7 +909,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Head/Camera3D/Super Shotgun:visible")
+tracks/10/path = NodePath("Character_01/GeneralSkeleton/BoneAttachment3D/Super Shotgun:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -1255,6 +1202,22 @@ bone_idx = 18
 transform = Transform3D(5.8789738e-08, 2.114653, -0.6830138, 2.2222211, -1.527369e-07, -3.3527613e-08, -2.9802322e-08, -0.68301415, -2.1146522, 0.2764691, -0.15626955, 0.39895725)
 visible = false
 
+[node name="Pistol" parent="Character_01/GeneralSkeleton/BoneAttachment3D" unique_id=1000237012 instance=ExtResource("3_qkwbg")]
+transform = Transform3D(0.8075902, 2.0702553, 0.011025615, 0.56190264, -0.23057956, 2.137602, 1.992565, -0.7740549, -0.60727227, 0.069384694, -0.05841133, 0.17555761)
+visible = false
+
+[node name="Automatic Gun" parent="Character_01/GeneralSkeleton/BoneAttachment3D" unique_id=1570839665 instance=ExtResource("4_0nkdc")]
+transform = Transform3D(1.0356532, 1.9266844, 0.3919075, 1.8697582, -1.1021059, 0.47710204, 0.6080171, 0.10739979, -2.1347232, 0.05349791, 0.027168661, 0.22616339)
+visible = false
+
+[node name="Shotgun" parent="Character_01/GeneralSkeleton/BoneAttachment3D" unique_id=1771674050 instance=ExtResource("5_rggdc")]
+transform = Transform3D(0.341703, 2.1956012, -0.029299974, 2.1819456, -0.33619526, 0.25364208, 0.24617052, -0.067771256, -2.2075, -0.010696173, 0.002800256, 0.041502)
+visible = false
+
+[node name="Super Shotgun" parent="Character_01/GeneralSkeleton/BoneAttachment3D" unique_id=1789681978 instance=ExtResource("6_c71x8")]
+transform = Transform3D(0.54243284, 2.148016, 0.17334437, 2.15499, -0.5402088, -0.049393117, -0.005604779, 0.18015951, -2.214902, 0.15957761, -0.040053397, 0.043830276)
+visible = false
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Character_01" unique_id=221011059]
 libraries/ = SubResource("AnimationLibrary_s0b1e")
 
@@ -1305,22 +1268,6 @@ target_position = Vector3(0, 0, -50)
 collision_mask = 15
 debug_shape_custom_color = Color(1, 0, 0, 1)
 debug_shape_thickness = 4
-
-[node name="Pistol" parent="Head/Camera3D" unique_id=1000237012 instance=ExtResource("3_qkwbg")]
-transform = Transform3D(-0.031044425, 0, 0.999518, 0, 1, 0, -0.999518, 0, -0.031044425, 0.528664, -0.941914, 0.706668)
-visible = false
-
-[node name="Automatic Gun" parent="Head/Camera3D" unique_id=1570839665 instance=ExtResource("4_0nkdc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.509918, -0.894058, 0.367649)
-visible = false
-
-[node name="Shotgun" parent="Head/Camera3D" unique_id=1771674050 instance=ExtResource("5_rggdc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525137, -0.278439, -0.663864)
-visible = false
-
-[node name="Super Shotgun" parent="Head/Camera3D" unique_id=1789681978 instance=ExtResource("6_c71x8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.570666, -0.301137, -1.34684)
-visible = false
 
 [node name="Flashlight" type="SpotLight3D" parent="Head/Camera3D" unique_id=1496010755]
 spot_range = 100.0

@@ -166,34 +166,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Model:position")
+tracks/0/path = NodePath("Model/Shot Particles:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Model:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Model/Shot Particles:emitting")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -205,34 +181,10 @@ resource_name = "Shoot"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Model:position")
+tracks/0/path = NodePath("Model/Shot Particles:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.75, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.504021), Vector3(0, -0.254158, 0.336014), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Model:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.75, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0.534856, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Model/Shot Particles:emitting")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -246,19 +198,20 @@ _data = {
 }
 
 [node name="Cannon" unique_id=608124024 node_paths=PackedStringArray("weapon_model") instance=ExtResource("1_wc4e5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 ammo_type = "Shells"
 attack_range = 30.0
 weapon_model = NodePath("Model/Shotgun_1/Shotgun_1")
 
 [node name="Shotgun_1" type="Node3D" parent="Model" parent_id_path=PackedInt32Array(987185032) index="0" unique_id=57927923]
-transform = Transform3D(0.76115453, 0, 28.99001, 0, 29, 0, -28.99001, 0, 0.76115453, 0.18307562, 0.20999998, -0.024999976)
+transform = Transform3D(0.76115453, 0, 28.99001, 0, 29, 0, -28.99001, 0, 0.76115453, 0, 0, 0)
 
 [node name="Shotgun_1" type="MeshInstance3D" parent="Model/Shotgun_1" index="0" unique_id=753659768]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_5nsmq")
 
 [node name="Shot Particles" type="GPUParticles3D" parent="Model" parent_id_path=PackedInt32Array(987185032) index="1" unique_id=919906557]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21497774, 0.28998482, -1.1350329)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0121509135, 0.0007687807, -1.1350329)
 layers = 2
 emitting = false
 amount = 26
