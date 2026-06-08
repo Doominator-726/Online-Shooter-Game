@@ -3,6 +3,8 @@ extends Node
 # Detection Signals
 signal detection_status_changed
 
+var test
+
 # Ammo Signals
 signal ammo_count_changed
 signal ammo_type_changed
