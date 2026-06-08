@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dtl0sb3knwuxh"]
+
+[ext_resource type="PackedScene" uid="uid://doerdemrex40u" path="res://Pickups/pickup_object.tscn" id="1_yev2b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yev2b"]
+size = Vector3(0.28509918, 0.23498262, 0.3370158)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fp35o"]
+size = Vector3(0.23, 0.205, 0.275)
+
+[node name="Bullet Pickup" unique_id=202967485 instance=ExtResource("1_yev2b")]
+ammo_amount = 50
+ammo_type = "Bullets"
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=393955162]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003934771, -0.0001270622, 0.0010274351)
+shape = SubResource("BoxShape3D_yev2b")
+
+[node name="Label3D" type="Label3D" parent="Model" parent_id_path=PackedInt32Array(1331322880) index="0" unique_id=1213148067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2408082, 0)
+billboard = 1
+text = "Bullets"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model" parent_id_path=PackedInt32Array(1331322880) index="1" unique_id=551354005]
+mesh = SubResource("BoxMesh_fp35o")

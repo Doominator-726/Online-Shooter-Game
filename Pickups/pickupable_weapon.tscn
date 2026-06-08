@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b5ke3q4brmt1x"]
+
+[ext_resource type="Script" uid="uid://qqe2ufh1fnki" path="res://Pickups/pickupable_weapon.gd" id="1_c66lt"]
+[ext_resource type="AudioStream" uid="uid://ct23dtqhlv374" path="res://achievement-video-game-type-1-230515.mp3" id="1_v4v4y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bt7f0"]
+size = Vector3(0.65, 0.25, 0.15)
+
+[node name="Pickupable Weapon" type="StaticBody3D" unique_id=2063120186 groups=["pickupObjects", "pickupWeapons"]]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_c66lt")
+
+[node name="Model" type="Node3D" parent="." unique_id=455282372]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=755347557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
+shape = SubResource("BoxShape3D_bt7f0")
+
+[node name="Pickup Sound" type="AudioStreamPlayer3D" parent="." unique_id=155032321]
+stream = ExtResource("1_v4v4y")
+
+[connection signal="finished" from="Pickup Sound" to="." method="_on_pickup_sound_finished"]

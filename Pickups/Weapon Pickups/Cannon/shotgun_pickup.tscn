@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://clwilv06d5ukc"]
+
+[ext_resource type="PackedScene" uid="uid://b5ke3q4brmt1x" path="res://Pickups/pickupable_weapon.tscn" id="1_f0j0i"]
+[ext_resource type="PackedScene" uid="uid://c4rxk0ab351m3" path="res://Free Use Models/Ultimate Gun Pack by Quaternius/FBX/Shotgun_1.fbx" id="2_0oxhj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3qcoq"]
+radius = 0.3869633
+
+[node name="Shotgun Pickup" unique_id=2063120186 instance=ExtResource("1_f0j0i")]
+weapon = "Shotgun"
+
+[node name="Shotgun_1" parent="Model" parent_id_path=PackedInt32Array(455282372) index="0" unique_id=57927923 instance=ExtResource("2_0oxhj")]
+transform = Transform3D(0.17, 0, 0, 0, 0.17, 0, 0, 0, 0.17, -0.2060407, 0, 0)
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=755347557]
+shape = SubResource("SphereShape3D_3qcoq")

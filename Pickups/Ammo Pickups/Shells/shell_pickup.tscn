@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://3ef31sct6i51"]
+
+[ext_resource type="PackedScene" uid="uid://doerdemrex40u" path="res://Pickups/pickup_object.tscn" id="1_75kn1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8r77h"]
+size = Vector3(0.28509918, 0.23498262, 0.3370158)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gtjof"]
+size = Vector3(0.23, 0.205, 0.275)
+
+[node name="Shell Pickup" unique_id=202967485 instance=ExtResource("1_75kn1")]
+ammo_amount = 6
+ammo_type = "Shells"
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=393955162]
+shape = SubResource("BoxShape3D_8r77h")
+
+[node name="Label3D" type="Label3D" parent="Model" parent_id_path=PackedInt32Array(1331322880) index="0" unique_id=1118243077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2408082, 0)
+billboard = 1
+text = "Shells"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Model" parent_id_path=PackedInt32Array(1331322880) index="1" unique_id=1311902687]
+mesh = SubResource("BoxMesh_gtjof")

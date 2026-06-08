@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bfldwsghh5xm5"
+path="res://.godot/imported/eaglaxle-riffle-shot-1-530811.mp3-3fbe3b34029a9ff6a77a385fedc1d1e5.mp3str"
+
+[deps]
+
+source_file="res://Pixabay Sfx/eaglaxle-riffle-shot-1-530811.mp3"
+dest_files=["res://.godot/imported/eaglaxle-riffle-shot-1-530811.mp3-3fbe3b34029a9ff6a77a385fedc1d1e5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

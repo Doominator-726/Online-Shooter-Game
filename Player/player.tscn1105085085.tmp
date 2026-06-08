@@ -1,0 +1,559 @@
+[gd_scene format=3 uid="uid://yf20xiwmnp0i"]
+
+[ext_resource type="Script" uid="uid://dggb6s8hhugsj" path="res://Player/player.gd" id="1_vtle1"]
+[ext_resource type="PackedScene" uid="uid://cypji8no73v30" path="res://Player/Weapons/Bone Miner/Bone Miner.tscn" id="2_dugdd"]
+[ext_resource type="PackedScene" uid="uid://cy0h2o01mdxmg" path="res://Player/Weapons/Pistol/pistol.tscn" id="3_qkwbg"]
+[ext_resource type="PackedScene" uid="uid://bh4nq8dls3vem" path="res://Player/Weapons/Flesh Rifle/flesh_rifle.tscn" id="4_0nkdc"]
+[ext_resource type="PackedScene" uid="uid://cn7ucwuxt17wa" path="res://Player/Weapons/Flek Cannon/flek_cannon.tscn" id="5_rggdc"]
+[ext_resource type="PackedScene" uid="uid://bkfx8img8fujb" path="res://Player/Weapons/Super Shotgun/super_shotgun.tscn" id="6_c71x8"]
+[ext_resource type="AudioStream" uid="uid://ct23dtqhlv374" path="res://achievement-video-game-type-1-230515.mp3" id="6_fhl08"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ek1cg"]
+radius = 0.25
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lbss5"]
+
+[sub_resource type="Animation" id="Animation_nt5e4"]
+resource_name = "Crouch"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:mesh:height")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.0, 1.2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:shape:height")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.0, 1.2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.362255, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vvjl6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:mesh:height")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape3D:shape:height")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dfdd6"]
+_data = {
+&"Crouch": SubResource("Animation_nt5e4"),
+&"RESET": SubResource("Animation_vvjl6")
+}
+
+[sub_resource type="Animation" id="Animation_aasyh"]
+resource_name = "Lower Automatic Gun"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Camera3D/Automatic Gun:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [true, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/Camera3D/Automatic Gun:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.509918, -0.285831, -0.853779), Vector3(0.648194, -0.761211, 0.35986)]
+}
+
+[sub_resource type="Animation" id="Animation_k0ghi"]
+resource_name = "Lower Knife"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Camera3D/Knife:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [true, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/Camera3D/Knife:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.501414, -0.239977, -0.57), Vector3(0.501414, -0.851919, 0.432272)]
+}
+
+[sub_resource type="Animation" id="Animation_o7hi5"]
+resource_name = "Lower Pistol"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Camera3D/Pistol:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [true, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/Camera3D/Pistol:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.528664, -0.282542, -0.57), Vector3(0.653395, -0.493672, 0.390575)]
+}
+
+[sub_resource type="Animation" id="Animation_xps3q"]
+resource_name = "Lower Shotgun"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Camera3D/Shotgun:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [true, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/Camera3D/Shotgun:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.525137, -0.278439, -0.663864), Vector3(0.64506, -0.784948, -0.23429)]
+}
+
+[sub_resource type="Animation" id="Animation_qrr6v"]
+resource_name = "Lower Super Shotgun"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Camera3D/Super Shotgun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.570666, -0.301137, -1.34684), Vector3(0.64506, -0.784948, -0.23429)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/Camera3D/Super Shotgun:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_lulmd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Camera3D/Automatic Gun:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/Camera3D/Shotgun:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Head/Camera3D/Shotgun:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Head/Camera3D/Shotgun:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.525137, -0.278439, -0.663864)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Head/Camera3D/Knife:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Head/Camera3D/Knife:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.501414, -0.239977, -0.57)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Head/Camera3D/Pistol:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Head/Camera3D/Automatic Gun:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Head/Camera3D/Automatic Gun:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.509918, -0.894058, 0.367649)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Head/Camera3D/Pistol:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.528664, -0.941914, 0.706668)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Head/Camera3D/Super Shotgun:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.570666, -0.301137, -1.34684)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Head/Camera3D/Super Shotgun:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6p2rl"]
+_data = {
+&"Lower Automatic Gun": SubResource("Animation_aasyh"),
+&"Lower Knife": SubResource("Animation_k0ghi"),
+&"Lower Pistol": SubResource("Animation_o7hi5"),
+&"Lower Shotgun": SubResource("Animation_xps3q"),
+&"Lower Super Shotgun": SubResource("Animation_qrr6v"),
+&"RESET": SubResource("Animation_lulmd")
+}
+
+[sub_resource type="Animation" id="Animation_srslk"]
+resource_name = "Be Drunk"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 4, 4.2, 4.4, 4.6, 4.8, 5, 5.2, 5.4, 5.6, 5.8, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.385718, 0.191986, 0), Vector3(-0.166551, -0.343001, 0.202377), Vector3(0.0583993, -0.234892, -0.330777), Vector3(0.156828, -0.184954, 0.125607), Vector3(0.211409, -0.118481, 0.484777), Vector3(-0.0656549, -0.116082, 0.517401), Vector3(-0.285542, 0.0340558, -0.0150223), Vector3(-0.285542, -0.286683, -0.0150223), Vector3(-0.0422262, -0.0565467, -0.0292364), Vector3(0, 0, 0), Vector3(0.385718, 0.191986, 0), Vector3(-0.166551, -0.343001, 0.202377), Vector3(0.0583993, -0.234892, -0.330777), Vector3(0.156828, -0.184954, 0.125607), Vector3(0.211409, -0.118481, 0.484777), Vector3(-0.0656549, -0.116082, 0.517401), Vector3(-0.285542, 0.0340558, -0.0150223), Vector3(-0.285542, -0.286683, -0.0150223), Vector3(-0.0422262, -0.0565467, -0.0292364), Vector3(0, 0, 0), Vector3(0.385718, 0.191986, 0), Vector3(-0.166551, -0.343001, 0.202377), Vector3(0.0583993, -0.234892, -0.330777), Vector3(0.156828, -0.184954, 0.125607), Vector3(0.211409, -0.118481, 0.484777), Vector3(-0.0656549, -0.116082, 0.517401), Vector3(-0.285542, 0.0340558, -0.0150223), Vector3(-0.285542, -0.286683, -0.0150223), Vector3(-0.0422262, -0.0565467, -0.0292364), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/Camera3D:fov")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4, 5, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [75.0, 20.0, 75.0, 110.0, 48.5, 101.4, 75.0]
+}
+
+[sub_resource type="Animation" id="Animation_es1rg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head/Camera3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head/Camera3D:fov")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [75.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qjndr"]
+_data = {
+&"Be Drunk": SubResource("Animation_srslk"),
+&"RESET": SubResource("Animation_es1rg")
+}
+
+[node name="Player" type="CharacterBody3D" unique_id=1605821242 groups=["player"]]
+collision_layer = 2
+collision_mask = 29
+script = ExtResource("1_vtle1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1332557500]
+shape = SubResource("CapsuleShape3D_ek1cg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1792137748]
+mesh = SubResource("CapsuleMesh_lbss5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1762404925]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer" unique_id=1261913486]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer" unique_id=1217423017]
+transparent_bg = true
+handle_input_locally = false
+positional_shadow_atlas_size = 4096
+size = Vector2i(1152, 648)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Subviewport Camera" type="Camera3D" parent="CanvasLayer/SubViewportContainer/SubViewport" unique_id=1350003166]
+unique_name_in_owner = true
+cull_mask = 2
+
+[node name="Head" type="Node3D" parent="." unique_id=1708127296]
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=1622782833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57, -0.57)
+cull_mask = 1048573
+current = true
+
+[node name="Interact_Raycast" type="RayCast3D" parent="Head/Camera3D" unique_id=2012605960]
+visible = false
+target_position = Vector3(0, 0, -3)
+collision_mask = 9
+debug_shape_custom_color = Color(1, 0, 0, 1)
+debug_shape_thickness = 4
+
+[node name="Shoot_Raycast" type="RayCast3D" parent="Head/Camera3D" unique_id=1821844081]
+visible = false
+target_position = Vector3(0, 0, -50)
+collision_mask = 13
+debug_shape_custom_color = Color(1, 0, 0, 1)
+debug_shape_thickness = 4
+
+[node name="Knife" parent="Head/Camera3D" unique_id=1055453889 instance=ExtResource("2_dugdd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.501414, -0.239977, -0.57)
+visible = false
+
+[node name="Pistol" parent="Head/Camera3D" unique_id=1000237012 instance=ExtResource("3_qkwbg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.528664, -0.941914, 0.706668)
+visible = false
+
+[node name="Automatic Gun" parent="Head/Camera3D" unique_id=1570839665 instance=ExtResource("4_0nkdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.509918, -0.894058, 0.367649)
+visible = false
+
+[node name="Shotgun" parent="Head/Camera3D" unique_id=1771674050 instance=ExtResource("5_rggdc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525137, -0.278439, -0.663864)
+visible = false
+
+[node name="Super Shotgun" parent="Head/Camera3D" unique_id=1789681978 instance=ExtResource("6_c71x8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.570666, -0.301137, -1.34684)
+visible = false
+
+[node name="Flashlight" type="SpotLight3D" parent="Head/Camera3D" unique_id=1496010755]
+visible = false
+spot_range = 100.0
+spot_angle = 24.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=297207796]
+libraries/ = SubResource("AnimationLibrary_dfdd6")
+
+[node name="Weapon Animations" type="AnimationPlayer" parent="." unique_id=1312190540]
+libraries/ = SubResource("AnimationLibrary_6p2rl")
+
+[node name="Camera Animations" type="AnimationPlayer" parent="." unique_id=1752364559]
+libraries/ = SubResource("AnimationLibrary_qjndr")
+
+[node name="Step Sound" type="AudioStreamPlayer3D" parent="." unique_id=1806842629]
+stream = ExtResource("6_fhl08")
+volume_db = -20.0
+
+[node name="Ground Impact" type="AudioStreamPlayer3D" parent="." unique_id=1017813387]
+stream = ExtResource("6_fhl08")
+
+[node name="Pain" type="AudioStreamPlayer3D" parent="." unique_id=394335984]
+stream = ExtResource("6_fhl08")
+
+[node name="Flashlight" type="AudioStreamPlayer3D" parent="." unique_id=881313456]
+stream = ExtResource("6_fhl08")
+volume_db = 20.0

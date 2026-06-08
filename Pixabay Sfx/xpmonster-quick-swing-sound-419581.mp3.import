@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://kujw55t1bql1"
+path="res://.godot/imported/xpmonster-quick-swing-sound-419581.mp3-696b0893d8105b59fae30378365d2b81.mp3str"
+
+[deps]
+
+source_file="res://Pixabay Sfx/xpmonster-quick-swing-sound-419581.mp3"
+dest_files=["res://.godot/imported/xpmonster-quick-swing-sound-419581.mp3-696b0893d8105b59fae30378365d2b81.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://78a52ocsof8k"
+path="res://.godot/imported/mrfriends-pistol-shot-233473.mp3-913e28eb55ff20f21fda53b9ddf1863c.mp3str"
+
+[deps]
+
+source_file="res://Pixabay Sfx/mrfriends-pistol-shot-233473.mp3"
+dest_files=["res://.godot/imported/mrfriends-pistol-shot-233473.mp3-913e28eb55ff20f21fda53b9ddf1863c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

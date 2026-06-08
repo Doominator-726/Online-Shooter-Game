@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cpw0qae02yr1l"]
+
+[ext_resource type="PackedScene" uid="uid://b5ke3q4brmt1x" path="res://Pickups/pickupable_weapon.tscn" id="1_hcasa"]
+[ext_resource type="PackedScene" uid="uid://clk77b4huppnp" path="res://Free Use Models/Ultimate Gun Pack by Quaternius/FBX/AssaultRifle2_1.fbx" id="2_ag6rw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ag6rw"]
+radius = 0.36456552
+
+[node name="Rifle Pickup" unique_id=2063120186 instance=ExtResource("1_hcasa")]
+
+[node name="Model" parent="." index="0" unique_id=455282372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09419701, 0, 0)
+
+[node name="AssaultRifle2_1" parent="Model" index="0" unique_id=40683990 instance=ExtResource("2_ag6rw")]
+transform = Transform3D(0.14, 0, 0, 0, 0.14, 0, 0, 0, 0.14, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=755347557]
+shape = SubResource("SphereShape3D_ag6rw")

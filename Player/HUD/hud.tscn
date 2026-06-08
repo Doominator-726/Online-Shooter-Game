@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://cttnluwsjb6j7"]
+
+[ext_resource type="Script" uid="uid://bfwdb4u54xapt" path="res://Player/HUD/hud.gd" id="1_gr654"]
+[ext_resource type="AudioStream" uid="uid://sxr31gxsmf71" path="res://Pixabay Sfx/UI/Button Hover/button_hover.mp3" id="2_xtdgy"]
+[ext_resource type="AudioStream" uid="uid://bj32a625qgbkd" path="res://Pixabay Sfx/UI/Button Select/button_select.mp3" id="3_1aaf1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s5mkn"]
+font_size = 24
+font_color = Color(0, 0.482353, 0, 0.784314)
+outline_size = 12
+outline_color = Color(0, 0.196078, 0, 0.784314)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v5051"]
+font_size = 36
+font_color = Color(0, 0.482353, 0, 0.784314)
+outline_size = 18
+outline_color = Color(0, 0.196078, 0, 0.784314)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hphpx"]
+font_color = Color(0, 0.482353, 0, 0.784314)
+outline_size = 4
+outline_color = Color(0, 0.196078, 0, 0.784314)
+
+[node name="Hud" type="CanvasLayer" unique_id=1768861667]
+process_mode = 3
+script = ExtResource("1_gr654")
+
+[node name="Combat Hud" type="Control" parent="." unique_id=1589150250]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Cursor" type="TextureRect" parent="Combat Hud" unique_id=1775264573]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player Stats" type="HBoxContainer" parent="Combat Hud" unique_id=359426297]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -177.0
+offset_top = -51.0
+offset_right = 178.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Health" type="VBoxContainer" parent="Combat Hud/Player Stats" unique_id=1489453725]
+layout_mode = 2
+
+[node name="Health Title" type="Label" parent="Combat Hud/Player Stats/Health" unique_id=586472608]
+layout_mode = 2
+text = "Health"
+label_settings = SubResource("LabelSettings_s5mkn")
+horizontal_alignment = 1
+
+[node name="Health Count" type="Label" parent="Combat Hud/Player Stats/Health" unique_id=812441931]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_v5051")
+horizontal_alignment = 1
+
+[node name="Ammo" type="VBoxContainer" parent="Combat Hud/Player Stats" unique_id=481854366]
+layout_mode = 2
+
+[node name="Ammo Title" type="Label" parent="Combat Hud/Player Stats/Ammo" unique_id=677715055]
+layout_mode = 2
+text = "Ammo"
+label_settings = SubResource("LabelSettings_s5mkn")
+horizontal_alignment = 1
+
+[node name="Ammo Count" type="Label" parent="Combat Hud/Player Stats/Ammo" unique_id=929052907]
+layout_mode = 2
+text = "5"
+label_settings = SubResource("LabelSettings_v5051")
+horizontal_alignment = 1
+
+[node name="Armor" type="VBoxContainer" parent="Combat Hud/Player Stats" unique_id=460105297]
+layout_mode = 2
+
+[node name="Armor Title" type="Label" parent="Combat Hud/Player Stats/Armor" unique_id=1787028294]
+layout_mode = 2
+text = "Armor"
+label_settings = SubResource("LabelSettings_s5mkn")
+horizontal_alignment = 1
+
+[node name="Armor Count" type="Label" parent="Combat Hud/Player Stats/Armor" unique_id=881490216]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_v5051")
+horizontal_alignment = 1
+
+[node name="Message" type="Control" parent="Combat Hud" unique_id=1390108634]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="messageLabel" type="Label" parent="Combat Hud/Message" unique_id=505348013]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+label_settings = SubResource("LabelSettings_hphpx")
+
+[node name="displayTimer" type="Timer" parent="Combat Hud/Message" unique_id=152373495]
+wait_time = 2.0
+one_shot = true
+
+[node name="Pause Menu" type="Control" parent="." unique_id=715889807]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Pause Menu" unique_id=1988002586]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0.247059, 0, 0.384314)
+
+[node name="Options" type="VBoxContainer" parent="Pause Menu" unique_id=1295952953]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -155.0
+offset_top = -136.0
+offset_right = 155.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Main Menu" type="Button" parent="Pause Menu/Options" unique_id=1318913270]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Quit Game" type="Button" parent="Pause Menu/Options" unique_id=585708446]
+layout_mode = 2
+text = "Quit Game"
+
+[node name="Button Hover Sound" type="AudioStreamPlayer" parent="." unique_id=759289253]
+stream = ExtResource("2_xtdgy")
+
+[node name="Button Select Sound" type="AudioStreamPlayer" parent="." unique_id=762089155]
+stream = ExtResource("3_1aaf1")
+
+[connection signal="timeout" from="Combat Hud/Message/displayTimer" to="." method="_on_display_timer_timeout"]
+[connection signal="button_up" from="Pause Menu/Options/Main Menu" to="." method="_on_main_menu_button_up"]
+[connection signal="button_up" from="Pause Menu/Options/Quit Game" to="." method="_on_quit_game_button_up"]

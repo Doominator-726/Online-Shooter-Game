@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://sxr31gxsmf71"
+path="res://.godot/imported/button_hover.mp3-9053f0f4359a3662af20231582c69454.mp3str"
+
+[deps]
+
+source_file="res://Pixabay Sfx/UI/Button Hover/button_hover.mp3"
+dest_files=["res://.godot/imported/button_hover.mp3-9053f0f4359a3662af20231582c69454.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
