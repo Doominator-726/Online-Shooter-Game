@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://2kjwhmpovudv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1s85s"]
+font_size = 50
+
+[node name="Title Screen" type="Control" unique_id=621867797]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=1867970473]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Death Match"
+label_settings = SubResource("LabelSettings_1s85s")
+
+[node name="Button" type="Button" parent="." unique_id=872417683]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Host Game"

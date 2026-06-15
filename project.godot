@@ -25,10 +25,6 @@ BeehaveGlobalDebugger="*uid://bl3ma400hpvsh"
 
 enabled=PackedStringArray("res://addons/beehave/plugin.cfg")
 
-[filesystem]
-
-import/blender/enabled=false
-
 [input]
 
 Forward={

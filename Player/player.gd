@@ -72,12 +72,16 @@ func _ready():
 	# Connects All of The Weapon Pickup Signals When The Game Starts
 	for weapon in get_tree().get_nodes_in_group("pickupWeapons"):
 		weapon.connect("add_weapon", add_new_weapon)
-		
+	
+	# On user end, change visual layer of weapons and model so it doesn't go into walls
 	weapon_0.set_to_hud_visibility()
 	weapon_1.set_to_hud_visibility()
 	weapon_2.set_to_hud_visibility()
 	weapon_3.set_to_hud_visibility()
 	weapon_4.set_to_hud_visibility()
+	
+	$Character_01/GeneralSkeleton/Character_01.set_layer_mask_value(1, false)
+	$Character_01/GeneralSkeleton/Character_01.set_layer_mask_value(2, true)
 		
 	switch_weapon(current_weapon)
 
