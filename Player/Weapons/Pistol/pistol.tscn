@@ -247,7 +247,10 @@ _data = {
 
 [node name="Pistol" unique_id=1280029128 node_paths=PackedStringArray("weapon_model") instance=ExtResource("1_u4nnb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+damage = null
 ammo_type = "Bullets"
+ammo_consumption = null
+default_ammo_amount = null
 attack_range = 60.0
 weapon_model = NodePath("Model/Pistol_1/Pistol_1")
 

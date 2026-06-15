@@ -287,6 +287,27 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = PackedFloat32Array(0, 1, 0.12560998, -0.7052461, -0.2277162, 0.65954185, 0.5, 1, -0.39989108, 0.8601354, -0.071685016, -0.30840805, 1, 1, 0.12560998, -0.7052461, -0.2277162, 0.65954185)
 
+[sub_resource type="Animation" id="Animation_n471f"]
+resource_name = "Pistol Idle"
+loop_mode = 1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%GeneralSkeleton:RightUpperArm")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.04904973, -0.785971, 0.038387496, 0.61511797, 0.46666667, 1, 0.099829204, -0.7547925, 0.07149064, 0.64436907, 1, 1, 0.04904973, -0.785971, 0.038387496, 0.61511797)
+
+[sub_resource type="Animation" id="Animation_7emwf"]
+resource_name = "Pistol Shoot"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%GeneralSkeleton:RightUpperArm")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.04904973, 0.785971, -0.038387496, -0.61511797, 0.47, 1, 0.033059634, -0.71679306, 0.017427832, 0.6962838, 1, 1, -0.04904973, 0.785971, -0.038387496, -0.61511797)
+
 [sub_resource type="Animation" id="Animation_gu6f8"]
 length = 0.001
 tracks/0/type = "rotation_3d"
@@ -419,6 +440,16 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0.0059461175, 0.9874481, -0.14514573, 0.061996173, 0.99999994, 1, -0.07394456, -0.6048318, 0.09827628, 0.7867989)
 
+[sub_resource type="Animation" id="Animation_lfmf2"]
+resource_name = "Raise Pistol"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%GeneralSkeleton:RightUpperArm")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 1, 0, 0, 1, 1, 0.04904973, -0.785971, 0.038387496, 0.61511797)
+
 [sub_resource type="Animation" id="Animation_dkpta"]
 resource_name = "Walk"
 loop_mode = 1
@@ -485,8 +516,11 @@ _data = {
 &"Idle": SubResource("Animation_p5o4e"),
 &"Knife Idle": SubResource("Animation_b1ygp"),
 &"Melee Attack": SubResource("Animation_pisgm"),
+&"Pistol Idle": SubResource("Animation_n471f"),
+&"Pistol Shoot": SubResource("Animation_7emwf"),
 &"RESET": SubResource("Animation_gu6f8"),
 &"Raise Knife": SubResource("Animation_o28un"),
+&"Raise Pistol": SubResource("Animation_lfmf2"),
 &"Walk": SubResource("Animation_dkpta")
 }
 
@@ -548,18 +582,70 @@ graph_offset = Vector2(-78, 98)
 filter_enabled = true
 filters = ["%GeneralSkeleton/BoneAttachment3D/Knife:visible", "%GeneralSkeleton/BoneAttachment3D:visible", "%GeneralSkeleton:Chest", "%GeneralSkeleton:Head", "%GeneralSkeleton:Hips", "%GeneralSkeleton:LeftHand", "%GeneralSkeleton:LeftLowerArm", "%GeneralSkeleton:LeftShoulder", "%GeneralSkeleton:LeftUpperArm", "%GeneralSkeleton:RightHand", "%GeneralSkeleton:RightLowerArm", "%GeneralSkeleton:RightShoulder", "%GeneralSkeleton:RightUpperArm", "%GeneralSkeleton:Spine", "GeneralSkeleton:RightUpperArm"]
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b1ygp"]
+animation = &"Pistol Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o28un"]
+animation = &"Fall"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dkpta"]
 animation = &"Knife Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i4o1l"]
+animation = &"Raise Pistol"
+play_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7emwf"]
 animation = &"Raise Knife"
 play_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gpjlu"]
+animation = &"Raise Pistol"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bbimk"]
+animation = &"Raise Pistol"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sm0op"]
+animation = &"Raise Pistol"
+play_mode = 1
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hshwv"]
 animation = &"Melee Attack"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8mwp6"]
+animation = &"Pistol Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pisgm"]
+animation = &"Pistol Shoot"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j2n6q"]
+animation = &"Raise Pistol"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lfmf2"]
 animation = &"Raise Knife"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qemgg"]
+animation = &"Raise Pistol"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_efx54"]
+animation = &"Raise Pistol"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n471f"]
+animation = &"Raise Pistol"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_76lrf"]
+animation = &"Pistol Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_755ss"]
+animation = &"Pistol Shoot"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m0h3t"]
+animation = &"Pistol Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8viyr"]
+animation = &"Pistol Shoot"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o28un"]
 xfade_time = 0.2
@@ -570,22 +656,86 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8viyr"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n471f"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hshwv"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gpjlu"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8mwp6"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qemgg"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sm0op"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_76lrf"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_p5o4e"]
-states/End/position = Vector2(897, 101)
+"states/Auto Idle/node" = SubResource("AnimationNodeAnimation_b1ygp")
+"states/Auto Idle/position" = Vector2(332, 230.56352)
+"states/Auto Shoot/node" = SubResource("AnimationNodeAnimation_o28un")
+"states/Auto Shoot/position" = Vector2(332, 314.56354)
+states/End/position = Vector2(203, -1)
 "states/Knife Idle/node" = SubResource("AnimationNodeAnimation_dkpta")
-"states/Knife Idle/position" = Vector2(387, 33)
+"states/Knife Idle/position" = Vector2(332, 60)
+"states/Lower Auto/node" = SubResource("AnimationNodeAnimation_i4o1l")
+"states/Lower Auto/position" = Vector2(492, 314.56354)
 "states/Lower Knife/node" = SubResource("AnimationNodeAnimation_7emwf")
-"states/Lower Knife/position" = Vector2(254, 118)
+"states/Lower Knife/position" = Vector2(492, 147)
+"states/Lower Pistol/node" = SubResource("AnimationNodeAnimation_gpjlu")
+"states/Lower Pistol/position" = Vector2(842, 147)
+"states/Lower Shotgun/node" = SubResource("AnimationNodeAnimation_bbimk")
+"states/Lower Shotgun/position" = Vector2(842, 314.56354)
+"states/Lower Super Shotgun/node" = SubResource("AnimationNodeAnimation_sm0op")
+"states/Lower Super Shotgun/position" = Vector2(530, 502.3149)
 "states/Melee Attack/node" = SubResource("AnimationNodeAnimation_hshwv")
-"states/Melee Attack/position" = Vector2(318, 204)
+"states/Melee Attack/position" = Vector2(332, 147)
+"states/Pistol Idle/node" = SubResource("AnimationNodeAnimation_8mwp6")
+"states/Pistol Idle/position" = Vector2(688, 60)
+"states/Pistol Shoot/node" = SubResource("AnimationNodeAnimation_pisgm")
+"states/Pistol Shoot/position" = Vector2(688, 147)
+"states/Raise Auto/node" = SubResource("AnimationNodeAnimation_j2n6q")
+"states/Raise Auto/position" = Vector2(492, 230.56352)
 "states/Raise Knife/node" = SubResource("AnimationNodeAnimation_lfmf2")
-"states/Raise Knife/position" = Vector2(499, 118)
+"states/Raise Knife/position" = Vector2(492, 60)
+"states/Raise Pistol/node" = SubResource("AnimationNodeAnimation_qemgg")
+"states/Raise Pistol/position" = Vector2(842, 60)
+"states/Raise Shotgun/node" = SubResource("AnimationNodeAnimation_efx54")
+"states/Raise Shotgun/position" = Vector2(842, 230.56352)
+"states/Raise Super Shotgun/node" = SubResource("AnimationNodeAnimation_n471f")
+"states/Raise Super Shotgun/position" = Vector2(530, 420.14917)
+"states/Shotgun Idle/node" = SubResource("AnimationNodeAnimation_76lrf")
+"states/Shotgun Idle/position" = Vector2(688, 230.56352)
+"states/Shotgun Shoot/node" = SubResource("AnimationNodeAnimation_755ss")
+"states/Shotgun Shoot/position" = Vector2(688, 314.56354)
 states/Start/position = Vector2(203, 60)
-transitions = ["Raise Knife", "Knife Idle", SubResource("AnimationNodeStateMachineTransition_o28un"), "Melee Attack", "Knife Idle", SubResource("AnimationNodeStateMachineTransition_7emwf")]
-graph_offset = Vector2(-42, 7)
+"states/Super Shotgun Idle/node" = SubResource("AnimationNodeAnimation_m0h3t")
+"states/Super Shotgun Idle/position" = Vector2(332, 420.14917)
+"states/Super Shotgun Shoot/node" = SubResource("AnimationNodeAnimation_8viyr")
+"states/Super Shotgun Shoot/position" = Vector2(332, 502.3149)
+transitions = ["Raise Knife", "Knife Idle", SubResource("AnimationNodeStateMachineTransition_o28un"), "Melee Attack", "Knife Idle", SubResource("AnimationNodeStateMachineTransition_7emwf"), "Raise Pistol", "Pistol Idle", SubResource("AnimationNodeStateMachineTransition_8viyr"), "Pistol Shoot", "Pistol Idle", SubResource("AnimationNodeStateMachineTransition_n471f"), "Raise Auto", "Auto Idle", SubResource("AnimationNodeStateMachineTransition_hshwv"), "Auto Shoot", "Auto Idle", SubResource("AnimationNodeStateMachineTransition_gpjlu"), "Raise Shotgun", "Shotgun Idle", SubResource("AnimationNodeStateMachineTransition_8mwp6"), "Shotgun Shoot", "Shotgun Idle", SubResource("AnimationNodeStateMachineTransition_qemgg"), "Raise Super Shotgun", "Super Shotgun Idle", SubResource("AnimationNodeStateMachineTransition_sm0op"), "Super Shotgun Shoot", "Super Shotgun Idle", SubResource("AnimationNodeStateMachineTransition_76lrf")]
+graph_offset = Vector2(-275.7634, 196.17126)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_p5o4e"]
-graph_offset = Vector2(-844.1088, 750.33875)
+graph_offset = Vector2(-1303.3237, 546.10065)
 nodes/output/position = Vector2(-400, 880)
 nodes/BaseStateMachine/node = SubResource("AnimationNodeStateMachine_5htga")
 nodes/BaseStateMachine/position = Vector2(-940, 900)
@@ -955,7 +1105,7 @@ shape = SubResource("CapsuleShape3D_ek1cg")
 
 [node name="GeneralSkeleton" type="Skeleton3D" parent="Character_01" unique_id=232800967]
 unique_name_in_owner = true
-transform = Transform3D(-0.45, 0, 3.934025e-08, 0, 0.45, 0, -3.934025e-08, 0, -0.45, 0, -0.24607, 0)
+transform = Transform3D(-0.45, 0, 6.794811e-08, 0, 0.45, 0, -6.794811e-08, 0, -0.45, 0, -0.24607, 0)
 bones/0/name = "Hips"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0429104, 2.6973603, -2.1683549e-17)
@@ -1072,9 +1222,9 @@ bones/16/name = "RightUpperArm"
 bones/16/parent = 15
 bones/16/rest = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -0.00030702274, 0.28805953, -0.13423063)
 bones/16/enabled = true
-bones/16/position = Vector3(-0.004, 0.288, -0.134)
+bones/16/position = Vector3(-0.0039999555, 0.288, -0.13399988)
 bones/16/rotation = Quaternion(0.04293934, 0.86654854, 0.49519172, 0.045112316)
-bones/16/scale = Vector3(1.0000008, 1.0000014, 1.0000005)
+bones/16/scale = Vector3(1.0000017, 1.0000011, 0.9999992)
 bones/17/name = "RightLowerArm"
 bones/17/parent = 16
 bones/17/rest = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0.07924791, 0.16423453, 0.61095786)
@@ -1194,7 +1344,7 @@ skin = SubResource("Skin_h3odv")
 skeleton = NodePath("..")
 
 [node name="BoneAttachment3D" type="BoneAttachment3D" parent="Character_01/GeneralSkeleton" unique_id=850348140]
-transform = Transform3D(-0.3619771, -0.16947502, -0.9166518, 0.015967434, 0.98206514, -0.18787283, 0.9320524, -0.08264235, -0.35277742, -1.8544433, 2.0771768, -0.15960458)
+transform = Transform3D(-0.36197692, -0.16947497, -0.9166506, 0.015967494, 0.9820647, -0.18787247, 0.9320532, -0.0826424, -0.35277745, -1.8544416, 2.077177, -0.15960427)
 bone_name = "RightHand"
 bone_idx = 18
 

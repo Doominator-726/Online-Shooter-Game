@@ -9,7 +9,6 @@ extends Node3D
 @export var attack_range: float = 20.0
 @export var weapon_model: MeshInstance3D
 
-var can_shoot: bool = true
 var is_selected: bool = false
 
 func set_to_hud_visibility():
@@ -18,8 +17,6 @@ func set_to_hud_visibility():
 	
 func shoot_weapon(target, target_damagable):
 	$"Attack Sound".play()
-		
-	can_shoot = false
 		
 	rpc("_sync_shoot_anim")
 		
@@ -35,7 +32,3 @@ func shoot_weapon(target, target_damagable):
 @rpc("any_peer", "call_local", "reliable")
 func _sync_shoot_anim():
 	$"Weapon Animation".play("Shoot")
-	
-func _on_weapon_animation_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "Shoot":
-		can_shoot = true

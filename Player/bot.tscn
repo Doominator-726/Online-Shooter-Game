@@ -942,7 +942,7 @@ autostart = true
 [node name="BeehaveTree" type="Node" parent="." unique_id=1256497533 node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("2_4tjsj")
 enabled = false
-blackboard = NodePath("@Node@18573")
+blackboard = NodePath("@Node@55351")
 actor = NodePath("../NavigationAgent3D")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 

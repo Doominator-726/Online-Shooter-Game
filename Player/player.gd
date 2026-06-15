@@ -93,6 +93,7 @@ func _unhandled_input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 		
 func _process(_delta):
+	print(weapon_state_machine.get_current_node())
 	if not is_multiplayer_authority(): return
 	subviewport_camera.set_global_transform(camera.get_global_transform())
 	
@@ -224,14 +225,13 @@ func _physics_process(delta):
 		if Input.is_action_pressed("Shoot"):
 			
 			# Checks that animations are finished and that there's enough ammo
-			if current_weapon.can_shoot and use_ammo():
+			if weapon_state_machine.get_current_node().contains("Idle") and use_ammo():
 				current_weapon.shoot_weapon(shoot_target, Globals.is_shoot_target_detected)
 				
-				var using_melee_weapon = current_weapon == weapon_0
 				if is_multiplayer_authority():
-					rpc("weapon_attack_anim", using_melee_weapon)
+					rpc("weapon_attack_anim")
 				else:
-					weapon_attack_anim(using_melee_weapon)
+					weapon_attack_anim()
 					
 @rpc("any_peer", "call_local", "reliable")
 func take_damage(damage):
@@ -269,9 +269,18 @@ func _sync_switch_state(falling: bool, moving: bool):
 		base_state_machine.travel("Idle")
 		
 @rpc("any_peer", "call_local", "reliable")
-func weapon_attack_anim(is_melee):
-	if (is_melee):
-		weapon_state_machine.travel("Melee Attack")
+func weapon_attack_anim():
+	match current_weapon:
+		weapon_0:
+			weapon_state_machine.travel("Melee Attack")
+		weapon_1:
+			weapon_state_machine.travel("Pistol Shoot")
+		weapon_2:
+			weapon_state_machine.travel("Auto Shoot")
+		weapon_3:
+			weapon_state_machine.travel("Shotgun Shoot")
+		weapon_4:
+			weapon_state_machine.travel("Super Shotgun Shoot")
 		
 @rpc("any_peer", "call_local", "reliable")
 func _sync_switch_weapon(weapon_index: int):
@@ -290,7 +299,8 @@ func switch_weapon(new_weapon):
 	if new_weapon in weapons and current_weapon != new_weapon:
 		
 		if current_weapon:
-			if weapon_state_machine.get_current_node() != "Knife Idle":
+			if !weapon_state_machine.get_current_node().contains("Idle"):
+				print("HEY")
 				return
 			unequip_weapon()
 			await $Character_01/AnimationTree.animation_finished
@@ -304,7 +314,6 @@ func unequip_weapon():
 		else:
 			_sync_unequip_anim(idx)
 	current_weapon.is_selected = false
-	print("DONE")
 	
 func equip_weapon(weapon):
 	var idx = weapon_index_map.get(weapon, -1)
@@ -319,16 +328,46 @@ func equip_weapon(weapon):
 	
 @rpc("any_peer", "call_local", "reliable")
 func _sync_unequip_anim(weapon_index: int):
-	
-	weapon_state_machine.travel("Lower Knife")
-	await $Character_01/AnimationTree.animation_finished
-	index_weapon_map.get(weapon_index).visible = false
-	
+	match weapon_index:
+		0:
+			weapon_state_machine.travel("Lower Knife")
+			await $Character_01/AnimationTree.animation_finished
+			weapon_0.visible = false
+		1:
+			weapon_state_machine.travel("Lower Pistol")
+			await $Character_01/AnimationTree.animation_finished
+			weapon_1.visible = false
+		2:
+			weapon_state_machine.travel("Lower Auto")
+			await $Character_01/AnimationTree.animation_finished
+			weapon_2.visible = false
+		3:
+			weapon_state_machine.travel("Lower Shotgun")
+			await $Character_01/AnimationTree.animation_finished
+			weapon_3.visible = false
+		4:
+			weapon_state_machine.travel("Lower Super Shotgun")
+			await $Character_01/AnimationTree.animation_finished
+			weapon_4.visible = false
+
 @rpc("any_peer", "call_local", "reliable")
 func _sync_equip_anim(weapon_index: int):
-	
-	weapon_state_machine.travel("Raise Knife")
-	index_weapon_map.get(weapon_index).visible = true
+	match weapon_index:
+		0:
+			weapon_state_machine.travel("Raise Knife")
+			weapon_0.visible = true
+		1:
+			weapon_state_machine.travel("Raise Pistol")
+			weapon_1.visible = true
+		2:
+			weapon_state_machine.travel("Raise Auto")
+			weapon_2.visible = true
+		3:
+			weapon_state_machine.travel("Raise Shotgun")
+			weapon_3.visible = true
+		4:
+			weapon_state_machine.travel("Raise Super Shotgun")
+			weapon_4.visible = true
 	
 func add_new_weapon(new_weapon):
 	# If new weapon then it switches, if not ammo is obtained
