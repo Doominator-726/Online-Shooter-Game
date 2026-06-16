@@ -27,7 +27,6 @@ func join_server() -> void:
 func add_player(id = 1):
 	var player = player_scene.instantiate()
 	player.name = str(id)
-	player.username = Globals.username
 	call_deferred("add_child", player)
 	
 func add_bot(spawn_pos: Vector3):

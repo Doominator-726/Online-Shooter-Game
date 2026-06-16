@@ -833,7 +833,7 @@ transitions = ["Raise Knife", "Knife Idle", SubResource("AnimationNodeStateMachi
 graph_offset = Vector2(17.236603, 165.17126)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_p5o4e"]
-graph_offset = Vector2(-1081.4564, 603.76245)
+graph_offset = Vector2(-1028.8079, 542.5602)
 nodes/output/position = Vector2(-400, 880)
 nodes/BaseStateMachine/node = SubResource("AnimationNodeStateMachine_5htga")
 nodes/BaseStateMachine/position = Vector2(-940, 900)
@@ -1472,7 +1472,7 @@ libraries/ = SubResource("AnimationLibrary_s0b1e")
 [node name="AnimationTree" type="AnimationTree" parent="Character_01" unique_id=1263693753]
 tree_root = SubResource("AnimationNodeBlendTree_p5o4e")
 anim_player = NodePath("../AnimationPlayer")
-"parameters/Blend2 3/blend_amount" = 1.0
+"parameters/Blend2 3/blend_amount" = 0.5
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1762404925]
 
@@ -1518,6 +1518,7 @@ debug_shape_custom_color = Color(1, 0, 0, 1)
 debug_shape_thickness = 4
 
 [node name="Flashlight" type="SpotLight3D" parent="Head/Camera3D" unique_id=1496010755]
+visible = false
 spot_range = 100.0
 spot_angle = 24.0
 

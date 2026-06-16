@@ -1,7 +1,5 @@
 extends CharacterBody3D
 
-@export var username = "Player Username"
-
 # God Mode
 @export var god_mode = false
 
@@ -62,8 +60,6 @@ func _enter_tree() -> void:
 	
 func _ready():
 	
-	$"Name Tag".text = username
-	
 	camera.current = is_multiplayer_authority()
 	subviewport_camera.current = is_multiplayer_authority()
 	
@@ -101,11 +97,15 @@ func _unhandled_input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 		
 func _process(_delta):
-	print(weapon_state_machine.get_current_node())
+	#print(weapon_state_machine.get_current_node())
 	if not is_multiplayer_authority(): return
 	subviewport_camera.set_global_transform(camera.get_global_transform())
 	
+	#print($Character_01/AnimationTree.get("parameters/Blend2 3/blend_amount"))
+	
 func _physics_process(delta):
+	
+	set_username(Globals.username)
 	
 	if not is_multiplayer_authority(): return
 	
@@ -237,9 +237,9 @@ func _physics_process(delta):
 				current_weapon.shoot_weapon(shoot_target, Globals.is_shoot_target_detected)
 				
 				if is_multiplayer_authority():
-					rpc("weapon_attack_anim")
+					rpc("weapon_attack_anim", weapon_index_map[current_weapon])
 				else:
-					weapon_attack_anim()
+					weapon_attack_anim(weapon_index_map[current_weapon])
 					
 @rpc("any_peer", "call_local", "reliable")
 func take_damage(damage):
@@ -277,17 +277,17 @@ func _sync_switch_state(falling: bool, moving: bool):
 		base_state_machine.travel("Idle")
 		
 @rpc("any_peer", "call_local", "reliable")
-func weapon_attack_anim():
-	match current_weapon:
-		weapon_0:
+func weapon_attack_anim(weapon_index):
+	match weapon_index:
+		0:
 			weapon_state_machine.travel("Melee Attack")
-		weapon_1:
+		1:
 			weapon_state_machine.travel("Pistol Shoot")
-		weapon_2:
+		2:
 			weapon_state_machine.travel("Auto Shoot")
-		weapon_3:
+		3:
 			weapon_state_machine.travel("Shotgun Shoot")
-		weapon_4:
+		4:
 			weapon_state_machine.travel("Super Shotgun Shoot")
 		
 @rpc("any_peer", "call_local", "reliable")
@@ -308,10 +308,10 @@ func switch_weapon(new_weapon):
 		
 		if current_weapon:
 			if !weapon_state_machine.get_current_node().contains("Idle"):
-				print("HEY")
 				return
 			unequip_weapon()
 			await $Character_01/AnimationTree.animation_finished
+			
 		equip_weapon(new_weapon)
 		
 func unequip_weapon():
@@ -324,6 +324,7 @@ func unequip_weapon():
 	current_weapon.is_selected = false
 	
 func equip_weapon(weapon):
+			
 	var idx = weapon_index_map.get(weapon, -1)
 	if idx != -1:
 		if is_multiplayer_authority():
@@ -360,6 +361,10 @@ func _sync_unequip_anim(weapon_index: int):
 
 @rpc("any_peer", "call_local", "reliable")
 func _sync_equip_anim(weapon_index: int):
+	
+	if !current_weapon:
+		$Character_01/AnimationTree.set("parameters/Blend2 3/blend_amount", 1)
+			
 	match weapon_index:
 		0:
 			weapon_state_machine.travel("Raise Knife")
@@ -439,3 +444,6 @@ func use_ammo():
 		"N/A":
 			return true
 			
+@rpc("any_peer", "call_local", "reliable")
+func set_username(username):
+	$"Name Tag".text = username
