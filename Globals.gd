@@ -14,6 +14,10 @@ signal player_armor_changed(change)
 
 var pause_menu_open = false
 
+# Multiplayer
+var creating_server: bool = false
+var username: String = "Default Username"
+
 # Is an interactable object being selected
 var is_object_detected: bool = false:
 	

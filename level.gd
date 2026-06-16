@@ -4,25 +4,30 @@ var peer = ENetMultiplayerPeer.new()
 @export var player_scene : PackedScene
 @export var bot_scene: PackedScene
 
-func _on_host_pressed() -> void:
+func _ready() -> void:
+	if Globals.creating_server:
+		create_server()
+	else:
+		join_server()
+		
+func create_server() -> void:
 	peer.create_server(1027)
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(add_player)
 	
 	add_player()
-	$CanvasLayer.hide()
 	
 	#add_bot(Vector3(-12.54, -0.989, 8.976))
 	#add_bot(Vector3(1.453, -3.412, 0))
 	
-func _on_join_pressed() -> void:
+func join_server() -> void:
 	peer.create_client("127.0.0.1", 1027)
 	multiplayer.multiplayer_peer = peer
-	$CanvasLayer.hide()
 	
 func add_player(id = 1):
 	var player = player_scene.instantiate()
 	player.name = str(id)
+	player.username = Globals.username
 	call_deferred("add_child", player)
 	
 func add_bot(spawn_pos: Vector3):
@@ -31,6 +36,7 @@ func add_bot(spawn_pos: Vector3):
 		
 	var bot = bot_scene.instantiate()
 	bot.name = "Bot_" + str(randi())
+	bot.username = "Bot_" + str(randi())
 	
 	add_child(bot)
 	await get_tree().process_frame

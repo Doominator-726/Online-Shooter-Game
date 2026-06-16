@@ -1542,6 +1542,14 @@ stream = ExtResource("9_x3vf3")
 stream = ExtResource("10_apopc")
 volume_db = 20.0
 
+[node name="Name Tag" type="Label3D" parent="." unique_id=1500965469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1788712, 0)
+transparency = 0.4
+visibility_range_end = 5.0
+billboard = 2
+shaded = true
+text = "Test Text"
+
 [node name="Hud" parent="." unique_id=1768861667 instance=ExtResource("11_apopc")]
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1940280033]

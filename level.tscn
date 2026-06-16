@@ -313,20 +313,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3269053, -3.38864, 4.699713
 [node name="Health Pickup" parent="." unique_id=1472392589 instance=ExtResource("10_2orkt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2423306, -3.3886395, 4.356673)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=97535407]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=2051516269]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Host" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1454446000]
-layout_mode = 2
-text = "Host"
-
-[node name="Join" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=310020600]
-layout_mode = 2
-text = "Join"
-
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1361455208]
 _spawnable_scenes = PackedStringArray("uid://yf20xiwmnp0i", "uid://dvdldv4saky53")
 spawn_path = NodePath("..")
@@ -357,6 +343,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2, -1.8000001, 16.300001)
 
 [node name="book_black_02" parent="." unique_id=305575433 instance=ExtResource("21_v7sqt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.400001, -1.8000001, 16)
-
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/Host" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/Join" to="." method="_on_join_pressed"]

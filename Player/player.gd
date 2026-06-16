@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@export var username = "Player Username"
+
 # God Mode
 @export var god_mode = false
 
@@ -59,6 +61,8 @@ func _enter_tree() -> void:
 	multiplayer_id = name.to_int()
 	
 func _ready():
+	
+	$"Name Tag".text = username
 	
 	camera.current = is_multiplayer_authority()
 	subviewport_camera.current = is_multiplayer_authority()

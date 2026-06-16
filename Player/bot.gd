@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@export var username = "Player Username"
+
 const JUMP_VELOCITY = 5.5
 
 # Stats
@@ -43,6 +45,8 @@ func _enter_tree():
 	multiplayer_id = 1
 	
 func _ready() -> void:
+	
+	$"Name Tag".text = username
 	
 	_build_weapon_maps()
 	switch_to_best_weapon()

@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://2kjwhmpovudv"]
 
+[ext_resource type="Script" uid="uid://ccmafdjtxtcv1" path="res://title_screen.gd" id="1_v6p8y"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_1s85s"]
 font_size = 50
 
@@ -10,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_v6p8y")
 
 [node name="Label" type="Label" parent="." unique_id=1867970473]
 layout_mode = 1
@@ -23,17 +26,41 @@ grow_horizontal = 2
 text = "Death Match"
 label_settings = SubResource("LabelSettings_1s85s")
 
-[node name="Button" type="Button" parent="." unique_id=872417683]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1073759505]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -47.0
+offset_top = -21.5
+offset_right = 47.0
+offset_bottom = 21.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Host" type="Button" parent="VBoxContainer" unique_id=872417683]
+layout_mode = 2
 text = "Host Game"
+
+[node name="Join" type="Button" parent="VBoxContainer" unique_id=532050488]
+layout_mode = 2
+text = "Join Game"
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=308117846]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -71.0
+offset_right = 192.0
+grow_horizontal = 2
+grow_vertical = 0
+placeholder_text = "Default Username"
+
+[connection signal="button_up" from="VBoxContainer/Host" to="." method="_on_host_button_up"]
+[connection signal="button_up" from="VBoxContainer/Join" to="." method="_on_join_button_up"]
