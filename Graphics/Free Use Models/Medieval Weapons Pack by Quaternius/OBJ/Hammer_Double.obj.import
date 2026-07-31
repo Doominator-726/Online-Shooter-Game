@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://fbts5fcdl67j"
+path="res://.godot/imported/Hammer_Double.obj-2b63ada5c0b05a9bd32e62c064b1b18e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Hammer_Double.obj-2b63ada5c0b05a9bd32e62c064b1b18e.mesh"]
+
+source_file="res://Graphics/Free Use Models/Medieval Weapons Pack by Quaternius/OBJ/Hammer_Double.obj"
+dest_files=["res://.godot/imported/Hammer_Double.obj-2b63ada5c0b05a9bd32e62c064b1b18e.mesh", "res://.godot/imported/Hammer_Double.obj-2b63ada5c0b05a9bd32e62c064b1b18e.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

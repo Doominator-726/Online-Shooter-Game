@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dl72gv48r05nx" path="res://Player/bot.gd" id="1_s8ytb"]
 [ext_resource type="PackedScene" uid="uid://cypji8no73v30" path="res://Player/Weapons/Knife/knife.tscn" id="2_2ebic"]
 [ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="2_4tjsj"]
-[ext_resource type="Texture2D" uid="uid://bq5ta6vtsjqpq" path="res://Free Use Models/PSX/Characters_psx/Textures/Character_31.png" id="2_xetfc"]
+[ext_resource type="Texture2D" uid="uid://bq5ta6vtsjqpq" path="res://Graphics/Free Use Models/PSX/Characters_psx/Textures/Character_31.png" id="2_xetfc"]
 [ext_resource type="PackedScene" uid="uid://cy0h2o01mdxmg" path="res://Player/Weapons/Pistol/pistol.tscn" id="3_cmapo"]
 [ext_resource type="PackedScene" uid="uid://bh4nq8dls3vem" path="res://Player/Weapons/Rifle/rifle.tscn" id="4_52u1v"]
 [ext_resource type="PackedScene" uid="uid://cn7ucwuxt17wa" path="res://Player/Weapons/Cannon/cannon.tscn" id="5_gumf1"]
@@ -942,7 +942,7 @@ autostart = true
 [node name="BeehaveTree" type="Node" parent="." unique_id=1256497533 node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("2_4tjsj")
 enabled = false
-blackboard = NodePath("@Node@186044")
+blackboard = NodePath("@Node@18814")
 actor = NodePath("../NavigationAgent3D")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 

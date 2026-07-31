@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bia876car4c37"]
+
+[ext_resource type="PackedScene" uid="uid://cwlcjvc2thavr" path="res://Graphics/Free Use Models/- Classic 64 Asset Pack 0.6/- Classic 64 Asset Pack 0.6/Industrial/fire_extenguisher_case.blend" id="1_ge2v0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nbvmv"]
+size = Vector3(0.575, 1.25, 0.444)
+
+[node name="fire_case" type="StaticBody3D" unique_id=601618709]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=831860636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0020000637, 0.060499936, -2.9802322e-08)
+shape = SubResource("BoxShape3D_nbvmv")
+
+[node name="fire_extenguisher_case2" parent="." unique_id=1931175361 instance=ExtResource("1_ge2v0")]
+transform = Transform3D(2.22, 0, 0, 0, 2.22, 0, 0, 0, 2.22, 0, 0, 0)

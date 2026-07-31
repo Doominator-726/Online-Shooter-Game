@@ -1,0 +1,42 @@
+[gd_resource type="ArrayMesh" format=4 uid="uid://dv6rvl1ax4e0m"]
+
+[ext_resource type="Texture2D" uid="uid://bvcq57qt0xem4" path="res://Graphics/Free Use Models/Industrial_exterior_v1/Industrial_exterior_v2/textures/Road.png" id="1_fom67"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35i2j"]
+resource_name = "Road"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_fom67")
+emission_enabled = true
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hcuqp"]
+_surfaces = [{
+"aabb": AABB(-5.000001, -0.09181979, -10.000001, 10.000002, 0.18363965, 20),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAwABAAAAAgAEAAAAAAAFAAMAAwAFAAYABgAHAAMABAACAAgACAAJAAQACQAIAAoACgALAAkA"),
+"name": "Road",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("SBReQGQLvL0BACDBThReQAQMvL3//x9BSBRewNwLvL3//x9BThReQDwLvD3//x9BThRewDwLvL0BACDBSBReQNwLvD0BACDB/v+fQNMLvD0BACDBAgCgQDMLvD3//x9BSBRewGQLvD3//x9BThRewAQMvD0BACDB/v+fwG0LvD3//x9BAgCgwA0MvD0BACDB")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "Road_long"
+_surfaces = [{
+"aabb": AABB(-5.000001, -0.09181979, -10.000001, 10.000002, 0.18363965, 20),
+"attribute_data": PackedByteArray("AAAAANx6UD4AAIA/3HpQPgAAgD84/0s/AAAAADj/Sz8AAIA/UJswPgAAgD/celA+AAAAANx6UD4AAAAAUJswPgAAgD/D9lM/AAAAAMP2Uz8AAAAAOP9LPwAAgD84/0s/AACAP1CbMD4AAAAAUJswPgAAAAAAAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAIA/AAAAAMP2Uz8AAIA/w/ZTPw=="),
+"format": 34359742487,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAA"),
+"material": SubResource("StandardMaterial3D_35i2j"),
+"name": "Road",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("SBReQGQLvL0BACDBThReQAQMvL3//x9BSBRewNwLvL3//x9BThRewDwLvL0BACDBThReQDwLvD3//x9BThReQAQMvL3//x9BSBReQGQLvL0BACDBSBReQNwLvD0BACDBSBRewGQLvD3//x9BThRewAQMvD0BACDBThRewDwLvL0BACDBSBRewNwLvL3//x9BThReQDwLvD3//x9BSBReQNwLvD0BACDB/v+fQNMLvD0BACDBAgCgQDMLvD3//x9B/v+fwG0LvD3//x9BAgCgwA0MvD0BACDBThRewAQMvD0BACDBSBRewGQLvD3//x9B/3////9//7//f////3//v/9/////f/+//3////9//78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v////3//f/+/////f/9//7////9//3//v////3//f/+//3////9//7//f////3//v/9/////f/+//3////9//7//f////3//v/9/////f/+//3////9//7//f////3//vw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_hcuqp")

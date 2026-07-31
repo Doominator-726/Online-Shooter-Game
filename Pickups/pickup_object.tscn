@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://doerdemrex40u"]
 
 [ext_resource type="Script" uid="uid://bur7vgwfkmnkb" path="res://Pickups/pickup_object.gd" id="1_pqju7"]
-[ext_resource type="AudioStream" uid="uid://ct23dtqhlv374" path="res://achievement-video-game-type-1-230515.mp3" id="1_usy3j"]
+[ext_resource type="AudioStream" uid="uid://ct23dtqhlv374" path="res://Pixabay Sfx/achievement-video-game-type-1-230515.mp3" id="1_usy3j"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kke34"]
 size = Vector3(0.425553, 0.199452, 0.600993)

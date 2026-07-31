@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ctmgbtlxcion"]
+
+[ext_resource type="PackedScene" uid="uid://clrqefrs26l13" path="res://Graphics/Free Use Models/- Classic 64 Asset Pack 0.6/- Classic 64 Asset Pack 0.6/Industrial/pump_station.blend" id="1_qoowj"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uq5wl"]
+height = 1.275
+radius = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jiasm"]
+size = Vector3(0.175, 0.85, 0.52500004)
+
+[node name="pump_station" type="StaticBody3D" unique_id=601618709]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=831860636]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.6875, -2.9802322e-08)
+shape = SubResource("CylinderShape3D_uq5wl")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=694238637]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1.6375, 1.4625001, -0.012500048)
+shape = SubResource("BoxShape3D_jiasm")
+
+[node name="pump_station2" parent="." unique_id=166888699 instance=ExtResource("1_qoowj")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

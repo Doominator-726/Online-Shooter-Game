@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bh4nq8dls3vem"]
 
 [ext_resource type="PackedScene" uid="uid://cn2voae352l00" path="res://Player/Weapons/weapon.tscn" id="1_kavtu"]
-[ext_resource type="Texture2D" uid="uid://smtmdmhhcbhu" path="res://gun_fire.tres" id="2_4ndjr"]
+[ext_resource type="Texture2D" uid="uid://smtmdmhhcbhu" path="res://Graphics/Effects/gun_fire.tres" id="2_4ndjr"]
 [ext_resource type="AudioStream" uid="uid://bfldwsghh5xm5" path="res://Pixabay Sfx/eaglaxle-riffle-shot-1-530811.mp3" id="3_85cqs"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j6qgo"]

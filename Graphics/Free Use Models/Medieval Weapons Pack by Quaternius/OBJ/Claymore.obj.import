@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c332mev5ni5lo"
+path="res://.godot/imported/Claymore.obj-f6723652ae769b6a916095f8ef0272eb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Claymore.obj-f6723652ae769b6a916095f8ef0272eb.mesh"]
+
+source_file="res://Graphics/Free Use Models/Medieval Weapons Pack by Quaternius/OBJ/Claymore.obj"
+dest_files=["res://.godot/imported/Claymore.obj-f6723652ae769b6a916095f8ef0272eb.mesh", "res://.godot/imported/Claymore.obj-f6723652ae769b6a916095f8ef0272eb.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

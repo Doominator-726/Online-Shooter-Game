@@ -1,0 +1,326 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://nhjifjdf3qlb"
+path="res://.godot/imported/IndustrialHorror_PS_like.fbx-c838c1b163fce69374a95658b8892be6.scn"
+
+[deps]
+
+source_file="res://Graphics/Free Use Models/Industrial_exterior_v1/Industrial_exterior_v2/Models/IndustrialHorror_PS_like.fbx"
+dest_files=["res://.godot/imported/IndustrialHorror_PS_like.fbx-c838c1b163fce69374a95658b8892be6.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"meshes": {
+"Bags_1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Storage/bags_1.tres",
+"save_to_file/path": "uid://c5cmhof62f52k"
+},
+"Bags_2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Storage/bags_2.tres",
+"save_to_file/path": "uid://c2y3u6kif4qte"
+},
+"Barrel_1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Storage/barrel_1.tres",
+"save_to_file/path": "uid://bq73c1t8iulhg"
+},
+"Barrel_2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Storage/barrel_2.tres",
+"save_to_file/path": "uid://cne3xasdgvgja"
+},
+"Barrel_3": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Storage/barrel_3.tres",
+"save_to_file/path": "uid://cjmvd64yg2141"
+},
+"Box_wide_wood": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Storage/box_1.tres",
+"save_to_file/path": "uid://cfyxmg4qbdoxm"
+},
+"Box_wood": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Storage/box_2.tres",
+"save_to_file/path": "uid://cxkop7fcjad03"
+},
+"Building_1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Buildings/building_1.tres",
+"save_to_file/path": "uid://cxruiro5qqcco"
+},
+"Building_11": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Buildings/building_11.tres",
+"save_to_file/path": "uid://c3s755hxu53l1"
+},
+"Building_2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Buildings/building_2.tres",
+"save_to_file/path": "uid://ti0nju0og38e"
+},
+"Building_3": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Buildings/building_3.tres",
+"save_to_file/path": "uid://br4ukafsxge8e"
+},
+"Cargo_1_close": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Storage/cargo_1_close.tres",
+"save_to_file/path": "uid://3dmhj6bewrvn"
+},
+"Cargo_1_open": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Storage/cargo_1_open.tres",
+"save_to_file/path": "uid://c42kmiifea5ro"
+},
+"Fence_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Infrastructure/fence.tres",
+"save_to_file/path": "uid://btgy4ar8n6ltl"
+},
+"Liquid_reservoir_1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Storage/liquid_reservoir_1.tres",
+"save_to_file/path": "uid://b0kuiskc0mqo0"
+},
+"Liquid_reservoir_2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Storage/liquid_reservoir_2.tres",
+"save_to_file/path": "uid://c0ub73l0painl"
+},
+"Metal_cabinet_1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Storage/metal_cabinet_1.tres",
+"save_to_file/path": "uid://db1bkkbe47x6d"
+},
+"Metal_cabinet_2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Storage/metal_cabinet_2.tres",
+"save_to_file/path": "uid://cwa53o7t3iuqp"
+},
+"Palet_single": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Storage/metal_pallet_1.tres",
+"save_to_file/path": "uid://cti1bl5oq8oqd"
+},
+"Palet_stack": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Storage/metal_pallet_2.tres",
+"save_to_file/path": "uid://cyuiojtxx53ru"
+},
+"Road_long": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Infrastructure/road_long.tres",
+"save_to_file/path": "uid://dv6rvl1ax4e0m"
+},
+"Road_short": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Infrastructure/road_short.tres",
+"save_to_file/path": "uid://c6cqveixttn6w"
+},
+"Road_turn_1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Infrastructure/road_turn_1.tres",
+"save_to_file/path": "uid://c71gobd6rjpqb"
+},
+"Road_turn_2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Infrastructure/road_turn_2.tres",
+"save_to_file/path": "uid://ty6a12u2js48"
+},
+"Road_turn_3": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Infrastructure/road_turn_3.tres",
+"save_to_file/path": "uid://dacliw1kc6l74"
+},
+"Roadblock": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Infrastructure/roadblock.tres",
+"save_to_file/path": "uid://hrvi02gppn86"
+},
+"Wall": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Infrastructure/wall.tres",
+"save_to_file/path": "uid://ch38tma777gq4"
+},
+"Wall_column": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Infrastructure/wall_column.tres",
+"save_to_file/path": "uid://jhffbqfp6vyl"
+},
+"Wall_corner_1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Infrastructure/wall_corner_1.tres",
+"save_to_file/path": "uid://blep8be5rn8qi"
+},
+"Wall_corner_2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Infrastructure/wall_corner_2.tres",
+"save_to_file/path": "uid://dwhpunmc2aftg"
+},
+"Wall_corner_3": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Graphics/3D Model Resources/Infrastructure/wall_corner_3.tres",
+"save_to_file/path": "uid://k0cyb71wsafp"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2

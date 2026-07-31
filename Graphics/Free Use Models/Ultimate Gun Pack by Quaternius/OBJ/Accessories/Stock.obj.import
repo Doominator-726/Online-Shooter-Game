@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bb7b6lw4fwm3r"
+path="res://.godot/imported/Stock.obj-de82a6c2e2b803aedba50d33cd7c562b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Stock.obj-de82a6c2e2b803aedba50d33cd7c562b.mesh"]
+
+source_file="res://Graphics/Free Use Models/Ultimate Gun Pack by Quaternius/OBJ/Accessories/Stock.obj"
+dest_files=["res://.godot/imported/Stock.obj-de82a6c2e2b803aedba50d33cd7c562b.mesh", "res://.godot/imported/Stock.obj-de82a6c2e2b803aedba50d33cd7c562b.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

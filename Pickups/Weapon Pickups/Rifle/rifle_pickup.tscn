@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cpw0qae02yr1l"]
 
 [ext_resource type="PackedScene" uid="uid://b5ke3q4brmt1x" path="res://Pickups/pickupable_weapon.tscn" id="1_hcasa"]
-[ext_resource type="PackedScene" uid="uid://clk77b4huppnp" path="res://Free Use Models/Ultimate Gun Pack by Quaternius/FBX/AssaultRifle2_1.fbx" id="2_ag6rw"]
+[ext_resource type="PackedScene" uid="uid://clk77b4huppnp" path="res://Graphics/Free Use Models/Ultimate Gun Pack by Quaternius/FBX/AssaultRifle2_1.fbx" id="2_ag6rw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ag6rw"]
 radius = 0.36456552

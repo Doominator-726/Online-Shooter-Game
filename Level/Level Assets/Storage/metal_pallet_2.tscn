@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bi8qw36es0dvc"]
+
+[ext_resource type="ArrayMesh" uid="uid://c6hegumc3jgga" path="res://Graphics/3D Model Resources/Storage/metal_pallet_2.tres" id="1_n11fl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cvgkx"]
+size = Vector3(2.173767, 1.0852051, 1.7596436)
+
+[node name="metal_pallet_2" type="StaticBody3D" unique_id=1608790632]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2072543918]
+mesh = ExtResource("1_n11fl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1938755685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.012237549, 0.5340576, -0.0064086914)
+shape = SubResource("BoxShape3D_cvgkx")

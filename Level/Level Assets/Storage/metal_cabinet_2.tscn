@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://chearaysj5o5m"]
+
+[ext_resource type="ArrayMesh" uid="uid://bx3c6dkrr1gu7" path="res://Graphics/3D Model Resources/Storage/metal_cabinet_2.tres" id="1_xlq0f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2sffl"]
+size = Vector3(1.2165527, 1.9988403, 0.41497803)
+
+[node name="metal_cabinet_2" type="StaticBody3D" unique_id=1432004360]
+
+[node name="MetalCabinet1" type="MeshInstance3D" parent="." unique_id=554263224]
+mesh = ExtResource("1_xlq0f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1557031749]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00061035156, 0.97683716, -0.002532959)
+shape = SubResource("BoxShape3D_2sffl")

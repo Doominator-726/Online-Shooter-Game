@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d2hpxeqshdnwg"]
+
+[ext_resource type="PackedScene" uid="uid://c807h6fskx0tr" path="res://Graphics/Free Use Models/- Classic 64 Asset Pack 0.6/- Classic 64 Asset Pack 0.6/Industrial/manhole_cover.blend" id="1_nmvj0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fuuq6"]
+height = 0.08749998
+radius = 1.0
+
+[node name="manhole_cover" type="StaticBody3D" unique_id=601618709]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=831860636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.006250035, -2.9802322e-08)
+shape = SubResource("CylinderShape3D_fuuq6")
+
+[node name="manhole_cover" parent="." unique_id=2006642410 instance=ExtResource("1_nmvj0")]

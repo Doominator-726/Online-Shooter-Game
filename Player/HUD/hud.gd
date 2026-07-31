@@ -27,11 +27,11 @@ func _ready():
 func change_icon():
 	# Changes cursor based on detection
 	if Globals.is_object_detected:
-		$"Combat Hud/Cursor".texture = load("res://Carry Over Test Assets/UI_object_detected.png")
+		$"Combat Hud/Cursor".texture = load("res://Graphics/UI/Combat/Item_Pickup.png")
 	elif Globals.is_shoot_target_detected:
-		$"Combat Hud/Cursor".texture = load("res://Carry Over Test Assets/UI_enemy_detected.png")
+		$"Combat Hud/Cursor".texture = load("res://Graphics/UI/Combat/Enemy_Detect.png")
 	else:
-		$"Combat Hud/Cursor".texture = load("res://Carry Over Test Assets/UI_default.png")
+		$"Combat Hud/Cursor".texture = load("res://Graphics/UI/Combat/Normal.png")
 		
 func update_ammo_count():
 	

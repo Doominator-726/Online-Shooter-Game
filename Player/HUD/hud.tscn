@@ -1,20 +1,23 @@
 [gd_scene format=3 uid="uid://cttnluwsjb6j7"]
 
 [ext_resource type="Script" uid="uid://bfwdb4u54xapt" path="res://Player/HUD/hud.gd" id="1_gr654"]
+[ext_resource type="Texture2D" uid="uid://bx8e1l2731ur1" path="res://Graphics/UI/Combat/Item_Pickup.png" id="2_1aaf1"]
 [ext_resource type="AudioStream" uid="uid://sxr31gxsmf71" path="res://Pixabay Sfx/UI/Button Hover/button_hover.mp3" id="2_xtdgy"]
 [ext_resource type="AudioStream" uid="uid://bj32a625qgbkd" path="res://Pixabay Sfx/UI/Button Select/button_select.mp3" id="3_1aaf1"]
+[ext_resource type="FontFile" uid="uid://bepok42yit5l8" path="res://Graphics/Fonts/Bring Me A Helicopter!.otf" id="3_blv8b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s5mkn"]
-font_size = 24
-font_color = Color(0, 0.482353, 0, 0.784314)
+font = ExtResource("3_blv8b")
+font_size = 28
 outline_size = 12
-outline_color = Color(0, 0.196078, 0, 0.784314)
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_v5051"]
+font = ExtResource("3_blv8b")
 font_size = 36
-font_color = Color(0, 0.482353, 0, 0.784314)
-outline_size = 18
-outline_color = Color(0, 0.196078, 0, 0.784314)
+font_color = Color(0.98234254, 0.9823423, 0.9823424, 1)
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hphpx"]
 font_color = Color(0, 0.482353, 0, 0.784314)
@@ -41,12 +44,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_1aaf1")
+expand_mode = 4
 
 [node name="Player Stats" type="HBoxContainer" parent="Combat Hud" unique_id=359426297]
 layout_mode = 1

@@ -1,0 +1,42 @@
+[gd_resource type="ArrayMesh" format=4 uid="uid://dmn6n00yp6hp3"]
+
+[ext_resource type="Texture2D" uid="uid://um8vne0jseot" path="res://Graphics/Free Use Models/Industrial_exterior_v1/Industrial_exterior_v2/Textures/Wall.png" id="1_o7m70"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uqeux"]
+resource_name = "Wall"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_o7m70")
+emission_enabled = true
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a1k43"]
+_surfaces = [{
+"aabb": AABB(-2.0148826, -0.08605716, -0.23111312, 4.029765, 2.9944706, 0.4622266),
+"format": 34359742465,
+"index_count": 78,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAQAEAAMAAwAEAAUABgAFAAAABQAGAAMAAgAHAAAAAAAHAAYABwACAAgACAAJAAcABwAJAAoACgAJAAgABgAHAAoACwAIAAIACwACAAMACAALAAoAAwAMAAsACgALAAwADQADAAYAAwANAAwADAAOAAoACgAOAAYADgAMAA0ABgAPAA0ADQAPAA4ADgAPAAYA"),
+"name": "Wall",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("1fMAwGw+sL3VKSm+1fMAQFQ+sL3hKSm+1PMAQJScMUBLKSm+1PMAQI6cMUBIcSc+1fMAQKQ+sL3Qbyc+1fMAwLw+sL3cbyc+1vMAwI6cMUBUcSc+1vMAwJScMUCKKSm+1PMAQJycMUBhqGy+1vMAwJycMUDrqGy+1vMAwHIjOkCgqGy+1PMAQHIjOkBhqGy+1PMAQG0jOkAWqGw+1PMAQJecMUAWqGw+1vMAwG0jOkC4qGw+1vMAwJecMUADqWw+")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "Wall"
+_surfaces = [{
+"aabb": AABB(-2.0148826, -0.08605716, -0.23111312, 4.029765, 2.9944706, 0.4622266),
+"attribute_data": PackedByteArray("AAADOkPffz9uTxw/Q99/P25PHD8TeAw/9/8COhJ4DD9uTxw/WKOxPW5PHD9glYU9+v8COmCVhT32/wI6WKOxPW5PHD9QjJM9+f8COlCMkz32/wI6WKOxPW5PHD9Yo7E9bk8cP1CMkz1uTxw/WKOxPfb/AjpYo7E9+f8COlCMkz36/wI6YJWFPW5PHD9glYU9bk8cP1ijsT32/wI6WKOxPQAAAzoA9AI6bk8cPwD0AjpuTxw/YJWFPfr/AjpglYU9bk8cPxN4DD9uTxw/Q99/PwAAAzpD338/9/8COhJ4DD8QuEQ/pHDdPhW4RD9wIuo+rH9BP3wi6j6ssi4/nHDdPqx/QT98Iuo+ldYxP3Ii6j6V1jE/ciLqPqmyLj9oIuo+rLIuP5xw3T6sf0E/fCLqPpp/QT+NYX0/kdYxP4phfT+V1jE/ciLqPqx/QT94Iuo+CrhEP6Bw3T6wsi4/mHDdPpnWMT9wIuo+sLIuP5hw3T6wsi4/ZCLqPpnWMT9wIuo+rH9BP3gi6j4KuEQ/cCLqPgq4RD+gcN0+rH9BP3gi6j6Z1jE/cCLqPpHWMT+IYX0/mn9BP4phfT8="),
+"format": 34359742487,
+"index_count": 78,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQAGAAZABoAGgAbABgAHAAdAB4AHwAcACAAIAAhAB8AIgAjACQAJQAmACcAJwAoACUAKQAqACsAKwAsACkALQAuAC8AMAAxADIAMwA0ADUANQA2ADMA"),
+"material": SubResource("StandardMaterial3D_uqeux"),
+"name": "Wall",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 55,
+"vertex_data": PackedByteArray("1fMAwGw+sL3VKSm+1fMAQFQ+sL3hKSm+1PMAQJScMUBLKSm+1vMAwJScMUCKKSm+1PMAQJycMUBhqGy+1PMAQHIjOkBhqGy+1vMAwHIjOkCgqGy+1vMAwJycMUDrqGy+1PMAQJycMUBhqGy+1vMAwJycMUDrqGy+1vMAwJScMUCKKSm+1PMAQJScMUBLKSm+1PMAQJecMUAWqGw+1PMAQI6cMUBIcSc+1vMAwI6cMUBUcSc+1vMAwJecMUADqWw+1vMAwG0jOkC4qGw+1PMAQG0jOkAWqGw+1PMAQJecMUAWqGw+1vMAwJecMUADqWw+1vMAwHIjOkCgqGy+1PMAQHIjOkBhqGy+1PMAQG0jOkAWqGw+1vMAwG0jOkC4qGw+1PMAQI6cMUBIcSc+1fMAQKQ+sL3Qbyc+1fMAwLw+sL3cbyc+1vMAwI6cMUBUcSc+1vMAwG0jOkC4qGw+1vMAwJecMUADqWw+1vMAwI6cMUBUcSc+1vMAwHIjOkCgqGy+1vMAwI6cMUBUcSc+1vMAwJScMUCKKSm+1vMAwJScMUCKKSm+1vMAwJycMUDrqGy+1vMAwHIjOkCgqGy+1vMAwI6cMUBUcSc+1fMAwLw+sL3cbyc+1fMAwGw+sL3VKSm+1vMAwJScMUCKKSm+1PMAQI6cMUBIcSc+1PMAQG0jOkAWqGw+1PMAQHIjOkBhqGy+1PMAQJScMUBLKSm+1PMAQHIjOkBhqGy+1PMAQJycMUBhqGy+1PMAQJScMUBLKSm+1PMAQI6cMUBIcSc+1PMAQJecMUAWqGw+1PMAQG0jOkAWqGw+1PMAQI6cMUBIcSc+1PMAQJScMUBLKSm+1fMAQFQ+sL3hKSm+1fMAQKQ+sL3Qbyc+/v/+//7//z/+//7//v//P6/VAAD+//8//v+v1a/V/z/+//7//v//P/7//v/+//8//v/+//7//z/+//7//v//PwCAAAD+//8/AIAAAP7//z9PqgAA/v//P69VTyqv1SdV/38BAP///7//f1Qq////v1OqVCqq1SnV/38BAP///7//f/9/////v/9//3////+//3//f////7//f/9/////v/9//v////+//3/+//7//7//f/7//v//v/9//v////+/q1X/f6rV/7//f/9/////v/9//3////+//3+rVf///78AAP9//3//vwAA/3//f/+/VCr/f1Oq/78AAP9//3//vxUz46Hekta7Tyr/f0+q/78YIvaydW0ZxAAA/3//f/+/AAD/f/9//78AAFOqq1X/vwAA/3//f/+/AAD/f/9//79PKq9V/3//v/7/U6pTqv8/////f/9//z////9//3//P+bd9rKJkuU7////f/9//z////9//3//P/7/T6pPqv8/6czjoSBtJ0T///9//3//P////3//f/8/qtWrVf9//z+v1f9/r1X/P/7//3//f/8//v//f/9//z8=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_a1k43")

@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cc4hlnmtmwqqm"
+path="res://.godot/imported/Shield_Round.obj-f4f4d67265cfbc7dcf773c1290a2396d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Shield_Round.obj-f4f4d67265cfbc7dcf773c1290a2396d.mesh"]
+
+source_file="res://Graphics/Free Use Models/Medieval Weapons Pack by Quaternius/OBJ/Shield_Round.obj"
+dest_files=["res://.godot/imported/Shield_Round.obj-f4f4d67265cfbc7dcf773c1290a2396d.mesh", "res://.godot/imported/Shield_Round.obj-f4f4d67265cfbc7dcf773c1290a2396d.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

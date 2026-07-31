@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dgwdggodskmei"]
+
+[ext_resource type="PackedScene" uid="uid://b64idg1dl028t" path="res://Graphics/Free Use Models/- Classic 64 Asset Pack 0.6/- Classic 64 Asset Pack 0.6/Industrial/yellow_post.blend" id="1_s5vuh"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w2lkn"]
+height = 1.4625001
+radius = 0.125
+
+[node name="post" type="StaticBody3D" unique_id=601618709]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=831860636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03125003, -2.9802322e-08)
+shape = SubResource("CylinderShape3D_w2lkn")
+
+[node name="yellow_post" parent="." unique_id=629457086 instance=ExtResource("1_s5vuh")]

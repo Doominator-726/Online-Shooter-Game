@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b33jpf1fdonfu"]
+
+[ext_resource type="ArrayMesh" uid="uid://c5fuflnm0ahpa" path="res://Graphics/3D Model Resources/Infrastructure/roadblock.tres" id="1_1v0dh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gk7xi"]
+size = Vector3(2.3500001, 1.0500001, 0.35)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o106j"]
+size = Vector3(2.3500001, 0.103125036, 0.8942627)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_haua1"]
+points = PackedVector3Array(-1.2, -0.087, -0.202, 1.2, -0.087, -0.202, -1.2, -0.416, -0.48, 1.2, -0.416, -0.48, -1.2, -0.412, -0.202, 1.2, -0.412, -0.202)
+
+[node name="roadblock" type="StaticBody3D" unique_id=1288021086]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1275883683]
+mesh = ExtResource("1_1v0dh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1050146856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024999976, 0.52500004, 0.024999991)
+shape = SubResource("BoxShape3D_gk7xi")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=1072279857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024999976, 0.051562518, -0.0044311583)
+shape = SubResource("BoxShape3D_o106j")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1454386575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024999976, 0.52500004, 0.024999991)
+shape = SubResource("ConvexPolygonShape3D_haua1")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=18805330]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.024999976, 0.52500004, -0.037758544)
+shape = SubResource("ConvexPolygonShape3D_haua1")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1120094867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1683451, 0.09421143, -0.45024505)

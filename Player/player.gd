@@ -97,11 +97,8 @@ func _unhandled_input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 		
 func _process(_delta):
-	#print(weapon_state_machine.get_current_node())
 	if not is_multiplayer_authority(): return
 	subviewport_camera.set_global_transform(camera.get_global_transform())
-	
-	#print($Character_01/AnimationTree.get("parameters/Blend2 3/blend_amount"))
 	
 func _physics_process(delta):
 	
@@ -337,6 +334,8 @@ func equip_weapon(weapon):
 	
 @rpc("any_peer", "call_local", "reliable")
 func _sync_unequip_anim(weapon_index: int):
+	
+	$Character_01/%GeneralSkeleton/LookAtModifier3D.set_active(false)
 	match weapon_index:
 		0:
 			weapon_state_machine.travel("Lower Knife")
@@ -362,6 +361,7 @@ func _sync_unequip_anim(weapon_index: int):
 @rpc("any_peer", "call_local", "reliable")
 func _sync_equip_anim(weapon_index: int):
 	
+	$Character_01/%GeneralSkeleton/LookAtModifier3D.set_active(false)
 	if !current_weapon:
 		$Character_01/AnimationTree.set("parameters/Blend2 3/blend_amount", 1)
 			
@@ -381,6 +381,9 @@ func _sync_equip_anim(weapon_index: int):
 		4:
 			weapon_state_machine.travel("Raise Super Shotgun")
 			weapon_4.visible = true
+			
+	await $Character_01/AnimationTree.animation_finished
+	$Character_01/%GeneralSkeleton/LookAtModifier3D.set_active(true)
 	
 func add_new_weapon(new_weapon):
 	# If new weapon then it switches, if not ammo is obtained
@@ -445,5 +448,6 @@ func use_ammo():
 			return true
 			
 @rpc("any_peer", "call_local", "reliable")
-func set_username(username):
+func set_username(username: String):
 	$"Name Tag".text = username
+	

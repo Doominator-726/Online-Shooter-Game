@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bkw6xhcyt035p"]
+
+[ext_resource type="ArrayMesh" uid="uid://br4ukafsxge8e" path="res://Graphics/3D Model Resources/Buildings/building_3.tres" id="1_k3w2w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fehb3"]
+size = Vector3(19.7, 8.400001, 13.6)
+
+[node name="Building_3" type="StaticBody3D" unique_id=1502935728]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1808304562]
+mesh = ExtResource("1_k3w2w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1005307237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14238358, 3.7000003, 0.5234022)
+shape = SubResource("BoxShape3D_fehb3")

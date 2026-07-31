@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://18orpj8t18h0"]
+
+[ext_resource type="PackedScene" uid="uid://csckja626nrg6" path="res://Graphics/Free Use Models/- Classic 64 Asset Pack 0.6/- Classic 64 Asset Pack 0.6/Products/products_papertowels_pack.blend" id="1_02vnb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qucw6"]
+size = Vector3(0.35, 0.3, 0.8)
+
+[node name="papertowerls" type="StaticBody3D" unique_id=601618709]
+
+[node name="products_papertowels_pack2" parent="." unique_id=732059523 instance=ExtResource("1_02vnb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.32500002)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1446909756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07499997, 2.9802322e-08, 2.9802322e-08)
+shape = SubResource("BoxShape3D_qucw6")

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c33b1yeo1d87r"]
+
+[ext_resource type="ArrayMesh" uid="uid://bl3wohi01j2sj" path="res://Graphics/3D Model Resources/Infrastructure/road_long.tres" id="1_emi41"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ydxqf"]
+size = Vector3(1.5362549, 0.24444886, 19.977478)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u8ecr"]
+size = Vector3(7.028595, 0.24444886, 19.977478)
+
+[node name="road_long" type="StaticBody3D" unique_id=667978559]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1561344972]
+mesh = ExtResource("1_emi41")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=997891001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.237349, -0.021347683, -0.0074157715)
+shape = SubResource("BoxShape3D_ydxqf")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1460273592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.237, -0.021, -0.007)
+shape = SubResource("BoxShape3D_ydxqf")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=122051284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021835327, -0.19515839, 0)
+shape = SubResource("BoxShape3D_u8ecr")

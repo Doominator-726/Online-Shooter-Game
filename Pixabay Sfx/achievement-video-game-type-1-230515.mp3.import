@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ct23dtqhlv374"
+path="res://.godot/imported/achievement-video-game-type-1-230515.mp3-6b864fbb6ce73e10d256bbdae53c018e.mp3str"
+
+[deps]
+
+source_file="res://Pixabay Sfx/achievement-video-game-type-1-230515.mp3"
+dest_files=["res://.godot/imported/achievement-video-game-type-1-230515.mp3-6b864fbb6ce73e10d256bbdae53c018e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

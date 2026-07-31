@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cn7ucwuxt17wa"]
 
 [ext_resource type="PackedScene" uid="uid://cn2voae352l00" path="res://Player/Weapons/weapon.tscn" id="1_wc4e5"]
-[ext_resource type="Texture2D" uid="uid://smtmdmhhcbhu" path="res://gun_fire.tres" id="2_rucxy"]
+[ext_resource type="Texture2D" uid="uid://smtmdmhhcbhu" path="res://Graphics/Effects/gun_fire.tres" id="2_rucxy"]
 [ext_resource type="AudioStream" uid="uid://c4n3qyqkrhwat" path="res://Pixabay Sfx/universfield-shotgun-blast-352038.mp3" id="3_duvgt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qrn67"]

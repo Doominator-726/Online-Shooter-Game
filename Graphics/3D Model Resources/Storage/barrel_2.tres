@@ -1,0 +1,44 @@
+[gd_resource type="ArrayMesh" format=4 uid="uid://cne3xasdgvgja"]
+
+[ext_resource type="Texture2D" uid="uid://cu5qyuhcmv5r" path="res://Graphics/Free Use Models/Industrial_exterior_v1/Industrial_exterior_v2/textures/Barrel_2.png" id="1_r7ft7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wuf3g"]
+resource_name = "Barrel_2"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_r7ft7")
+emission_enabled = true
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nsxnm"]
+_surfaces = [{
+"aabb": AABB(-0.2648378, -0.032030176, -0.27846694, 0.5296756, 0.9547463, 0.5569339),
+"format": 34359742465,
+"index_count": 108,
+"index_data": PackedByteArray("AAALAAIAAgAMAAAADQAAAAwACwAAAA0ABgAMAAIAAgAOAAYADgACAAsADwAMAAYADwAGAA4ADwANAAwADQABAAsAAQANAAcACwABAAgABwAIAAEAEAAHAA0ACAAHABAAEAANAA8AEAARAAgACwAIAAMACAARAAMAAwAOAAsAEQAQAAUABQADABEAEgAFABAAAwAFABIADwASABAAEgAKAAMADgAJAA8ADwAEABIABAAPAAkADgATAAkACQATAAQADgADABMAEgAEABMAAwAKABMAEwAKABIA"),
+"lods": [0.1615489, PackedByteArray("AAABAAIABgAAAAIAAQAAAAcABwAAAAYABwAIAAEAAQAIAAMABwADAAgACQACAAEAAgAJAAYAAwAJAAEABAAGAAkACQADAAoACQAKAAQAAwAHAAUABgAFAAcABQAKAAMABgAEAAUABQAEAAoA"), 0.5522396, PackedByteArray("AAABAAIAAwACAAEABAAAAAIAAgADAAQAAQAAAAUABQADAAEAAAAEAAUABQAEAAMA")],
+"name": "Barrel_2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("0piHPg0yA72FO7A9aZsnPiA3bD/4sGY+0ZiHPiA3bD+LO7C90ZiHviA3bD+HO7A9aJsnvhIyA735sGa+0JiHvhMyA72HO7A9YpsnPg4yA70AsWa+d3V2MxAyA704k44+dm6GMiA3bD84k44+kuYNsyA3bD84k46+0piHviA3bD+CO7C90ZiHPiA3bD+FO7A90piHPg0yA72LO7C9bJsnPg4yA734sGY+X5snPiA3bD8AsWa+rF4VMhAyA704k46+ZZsnvhIyA737sGY+aJsnviA3bD/7sGY+0ZiHvhMyA72CO7C9a5snviA3bD/5sGa+")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "Barrel_2"
+_surfaces = [{
+"aabb": AABB(-0.2648378, -0.032030176, -0.27846694, 0.5296756, 0.9547463, 0.5569339),
+"attribute_data": PackedByteArray("hLnMPgAAgD+kopk+UuDkPmfQ/z5S4OQ+Xvw7OgAAgD9e/Ds6UuDkPoWKTD8AAIA/aaF/P1Lg5D5poX8/AACAPyTxXz+Wa5Q+l84IPwByLj13eeg+lmuUPmyDTDys7JM+7szdPhDeGz44qbQ+WozMPqZzGT8AAIA/gxdNPgAAgD8U/zI/UuDkPoMXTT5S4OQ+9hVmP1Lg5D5GX0s/AHIuPe8WKj8crOI+DzFkPjIt4j4LMWQ+AAgjumyDTDwQ3hs+hLnMPlLg5D6kopk+AACAP2fQ/z4AAIA/pnMZP1Lg5D4U/zI/AACAP3/TzT0AAIA/f9PNPVLg5D6Fikw/UuDkPvYVZj8AAIA/7hYqPwCItTl1eeg+5NscPpjOCD9CC80+R19LP0ILzT4k8V8/3NscPu7M3T6s7JM+WR++PVqMzD4zqbQ+wHoqPVEfvj3geio9"),
+"format": 34359742487,
+"index_count": 108,
+"index_data": PackedByteArray("AAAYAAIAGAAAABkAAgAaAAAAGQABABgADgAaAAIAAQAZAA8AAgAbAA4ADwARAAEAHAAOABsAEQAPAB0AGwAQABwAHQAeABEAHgAdAAMAAwAEAB4ABQAcABAAEAAfAAUAIAAFAB8AHwASACAAIAASAAYABgAHACAAIQAiACMAIgAKACMAIQAJACIAIwAkACEAIwAUACQAIQAkACUAJAAIACUAIQAlABMAJgAVAAsAJgANABUAFQAnAAsACwAoACYAKAAMACYAKAALACkACwAXACkAKAApABYA"),
+"lods": [0.1615489, PackedByteArray("AAABAAIADgAAAAIAAQAAAA8AAgAQAA4ADwARAAEADwAEABEABAAPAAMABQAOABAAEAASAAUABwAFABIABwASAAYAEwAKABQAEwAJAAoAFAAIABMADQAVAAsACwAWAA0AFgAMAA0AFgALABcA"), 0.5522396, PackedByteArray("AAABAAIAAQAAAAMAAwAEAAEABQAAAAIAAgAGAAUABwAFAAYACAAJAAoACwAMAA0A")],
+"material": SubResource("StandardMaterial3D_wuf3g"),
+"name": "Barrel_2",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 42,
+"vertex_data": PackedByteArray("0piHPg0yA72FO7A9aZsnPiA3bD/4sGY+0ZiHPiA3bD+LO7C90JiHvhMyA72HO7A90ZiHviA3bD+HO7A9aJsnvhIyA735sGa+0ZiHviA3bD+HO7A90JiHvhMyA72HO7A90piHPg0yA72FO7A9aJsnvhIyA735sGa+0JiHvhMyA72HO7A90ZiHviA3bD+HO7A90ZiHPiA3bD+LO7C9aZsnPiA3bD/4sGY+YpsnPg4yA70AsWa+d3V2MxAyA704k44+kuYNsyA3bD84k46+dm6GMiA3bD84k44+0piHviA3bD+CO7C9YpsnPg4yA70AsWa+d3V2MxAyA704k44+dm6GMiA3bD84k44+kuYNsyA3bD84k46+0piHviA3bD+CO7C90ZiHPiA3bD+FO7A9bJsnPg4yA734sGY+0piHPg0yA72LO7C9X5snPiA3bD8AsWa+rF4VMhAyA704k46+ZZsnvhIyA737sGY+aJsnviA3bD/7sGY+a5snviA3bD/5sGa+0ZiHvhMyA72CO7C9rF4VMhAyA704k46+0ZiHvhMyA72CO7C9ZZsnvhIyA737sGY+bJsnPg4yA734sGY+0piHPg0yA72LO7C90ZiHPiA3bD+FO7A9aJsnviA3bD/7sGY+X5snPiA3bD8AsWa+a5snviA3bD/5sGa+m+D/f///TfDctf9////t2v//Y58AALGPYx//f2Of/79jH/9/Y5//vwAA3DXcNf+/Yx//f2Of/79jH/9/Y5//v/9/AAD+//8//38AAP7//z//fwAA/v//P/9//v/+//+//3/+//7//7//f///////v///IsoAABCl/3//f////78AAP7/AAD/v/9//3////+/AACbYJtg/7//fwAA////P/9/AAD///8//3///////7//f/7//v//v/9///////+/m+D/f///TfDctf9////t2v//Y58AALGP//8iygAAEKUAAP7/AAD/vyJK/38iyv+/Ikr/fyLK/78AANw13DX/vwAAm2CbYP+//38AAP///z//fwAA/v//P/9/AAD+//8//38AAP///z//fwAA////P/9///////+//3/+//7//7//f/7//v//v/9///////+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_nsxnm")

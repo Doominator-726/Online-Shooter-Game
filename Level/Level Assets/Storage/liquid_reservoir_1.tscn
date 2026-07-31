@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://86bgvujq2y76"]
+
+[ext_resource type="ArrayMesh" uid="uid://clgpgutfs3nk6" path="res://Graphics/3D Model Resources/Storage/liquid_reservoir_1.tres" id="1_0vy4b"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_6r84x"]
+height = 6.375641
+radius = 5.3813477
+
+[node name="liquid_reservoir_1" type="StaticBody3D" unique_id=167734085]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=832298429]
+mesh = ExtResource("1_0vy4b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=194731354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1780243, 0)
+shape = SubResource("CylinderShape3D_6r84x")

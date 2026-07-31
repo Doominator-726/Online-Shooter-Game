@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cn2voae352l00"]
 
 [ext_resource type="Script" uid="uid://bbdcmtn768qou" path="res://Player/Weapons/weapon.gd" id="1_onbuj"]
-[ext_resource type="AudioStream" uid="uid://ct23dtqhlv374" path="res://achievement-video-game-type-1-230515.mp3" id="1_xgcik"]
+[ext_resource type="AudioStream" uid="uid://ct23dtqhlv374" path="res://Pixabay Sfx/achievement-video-game-type-1-230515.mp3" id="1_xgcik"]
 
 [node name="Weapon" type="Node3D" unique_id=1361627801]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57, -0.57)

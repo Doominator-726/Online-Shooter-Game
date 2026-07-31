@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dpdfr1hycqik5"]
+
+[ext_resource type="ArrayMesh" uid="uid://y4tg7yefcyti" path="res://Graphics/3D Model Resources/Storage/bags_2.tres" id="1_425ia"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jvyq7"]
+size = Vector3(2.5151978, 2.5465088, 1.6469421)
+
+[node name="bags_2" type="StaticBody3D" unique_id=570183666]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=353179424]
+mesh = ExtResource("1_425ia")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=719623924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010101318, 1.2268677, 0.05732727)
+shape = SubResource("BoxShape3D_jvyq7")

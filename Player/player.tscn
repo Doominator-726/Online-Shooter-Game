@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://yf20xiwmnp0i"]
 
 [ext_resource type="Script" uid="uid://dggb6s8hhugsj" path="res://Player/player.gd" id="1_vtle1"]
-[ext_resource type="Texture2D" uid="uid://b1akhdik2ceue" path="res://Free Use Models/PSX/Characters_psx/Textures/Character_01.png" id="2_5htga"]
+[ext_resource type="Texture2D" uid="uid://b1akhdik2ceue" path="res://Graphics/Free Use Models/PSX/Characters_psx/Textures/Character_01.png" id="2_5htga"]
 [ext_resource type="PackedScene" uid="uid://cypji8no73v30" path="res://Player/Weapons/Knife/knife.tscn" id="2_dugdd"]
 [ext_resource type="PackedScene" uid="uid://cy0h2o01mdxmg" path="res://Player/Weapons/Pistol/pistol.tscn" id="3_qkwbg"]
 [ext_resource type="PackedScene" uid="uid://bh4nq8dls3vem" path="res://Player/Weapons/Rifle/rifle.tscn" id="4_0nkdc"]
@@ -1466,6 +1466,13 @@ visible = false
 transform = Transform3D(-1.296304, 1.7731693, -0.33722433, 1.782584, 1.1925421, -0.5817987, -0.2832626, -0.6098935, -2.1180341, 0.22700942, -0.17775989, -0.2577703)
 visible = false
 
+[node name="LookAtModifier3D" type="LookAtModifier3D" parent="Character_01/GeneralSkeleton" unique_id=1851584759]
+active = false
+influence = 0.85
+target_node = NodePath("../../../Head/Camera3D/ArmLookAt")
+bone_name = "RightUpperArm"
+bone = 16
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Character_01" unique_id=221011059]
 libraries/ = SubResource("AnimationLibrary_s0b1e")
 
@@ -1511,7 +1518,6 @@ debug_shape_thickness = 4
 
 [node name="Shoot_Raycast" type="RayCast3D" parent="Head/Camera3D" unique_id=1821844081]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.19634467)
-visible = false
 target_position = Vector3(0, 0, -50)
 collision_mask = 15
 debug_shape_custom_color = Color(1, 0, 0, 1)
@@ -1521,6 +1527,9 @@ debug_shape_thickness = 4
 visible = false
 spot_range = 100.0
 spot_angle = 24.0
+
+[node name="ArmLookAt" type="Marker3D" parent="Head/Camera3D" unique_id=216847358]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=297207796]
 libraries/ = SubResource("AnimationLibrary_dfdd6")

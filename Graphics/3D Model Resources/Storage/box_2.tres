@@ -1,0 +1,42 @@
+[gd_resource type="ArrayMesh" format=4 uid="uid://cxkop7fcjad03"]
+
+[ext_resource type="Texture2D" uid="uid://btnfu5xm6kin7" path="res://Graphics/Free Use Models/Industrial_exterior_v1/Industrial_exterior_v2/textures/Box_wood.png" id="1_qwj73"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7uh6d"]
+resource_name = "Box_wood"
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_qwj73")
+emission_enabled = true
+emission_energy_multiplier = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a5mp8"]
+_surfaces = [{
+"aabb": AABB(-0.4050731, -0.037495624, -0.40507323, 0.81014633, 0.81238234, 0.8101466),
+"format": 34359742465,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAAAAADAAQAAwACAAUABQAEAAMABQACAAEABAAGAAAABgAEAAUAAQAAAAYABQAHAAYABgAHAAEAAQAHAAUA"),
+"name": "Box_wood",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("tWXPvvWUGb3DZc8+wmXPPtOUGb3DZc8+vGXPPgOVGb3AZc++vWXPvv2UGb3CZc++vmXPvvpeRj++Zc++u2XPPvheRj/BZc++tmXPvvpeRj/GZc8+wWXPPvpeRj/BZc8+")
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "Box_wood"
+_surfaces = [{
+"aabb": AABB(-0.4050731, -0.037495624, -0.40507323, 0.81014633, 0.81238234, 0.8101466),
+"attribute_data": PackedByteArray("X/H6PtAaCD16tUk/0BoIPXq1ST98pJU+X/H6PnyklT56tUk/RiuiPl/x+j5GK6I+X/H6PgDmlzp6tUk/AOaXOpHD/j5Ajiw8Hv5HP0COLDwe/kc/0vemPpHD/j7S96Y+erVJP0Yroj5f8fo+RiuiPl/x+j4A5pc6erVJPwDmlzpEn9M+SMSoPkSf0z58dS0/5rsdPXx1LT/cux09SMSoPpHD/j7S96Y+kcP+PkCOLDwe/kc/QI4sPB7+Rz/S96Y+"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwAEAARABIAEgATABAAFAAVABYAFgAXABQA"),
+"material": SubResource("StandardMaterial3D_7uh6d"),
+"name": "Box_wood",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("tWXPvvWUGb3DZc8+wmXPPtOUGb3DZc8+vGXPPgOVGb3AZc++vWXPvv2UGb3CZc++vWXPvv2UGb3CZc++vGXPPgOVGb3AZc++u2XPPvheRj/BZc++vmXPvvpeRj++Zc++tWXPvvWUGb3DZc8+vWXPvv2UGb3CZc++vmXPvvpeRj++Zc++tmXPvvpeRj/GZc8+wmXPPtOUGb3DZc8+tWXPvvWUGb3DZc8+tmXPvvpeRj/GZc8+wWXPPvpeRj/BZc8+u2XPPvheRj/BZc++wWXPPvpeRj/BZc8+tmXPvvpeRj/GZc8+vmXPvvpeRj++Zc++u2XPPvheRj/BZc++vGXPPgOVGb3AZc++wmXPPtOUGb3DZc8+wWXPPvpeRj/BZc8+/38AAP///7//fwAA/v//v/9/AAD+//+//38AAP7//78AAP//AAD/vwAA//8AAP+/AAD//wAA/78AAP//AAD/vwAA/38AAACAAAD/fwAAAIAAAP9/AAAAgAAA/38AAACA/3//f////7//f/9//v//v/9//3////+//3//f////7//f/7//v//v/9//v/+//+//3/+//7//7//f/7//v//v////3//f/+/////f/9//7////9//3//v////3//f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_a5mp8")
