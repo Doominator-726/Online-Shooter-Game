@@ -345,7 +345,7 @@ func _on_aim_offset_timer_timeout() -> void:
 	randf_range(-aim_offset_amount, aim_offset_amount)
 )
 
-func _on_navigation_agent_3d_link_reached(details: Dictionary) -> void:
+func _on_navigation_agent_3d_link_reached(_details: Dictionary) -> void:
 	jump()
 
 func _on_item_pickup_area_body_entered(body: Node3D) -> void:

@@ -336,6 +336,7 @@ func equip_weapon(weapon):
 func _sync_unequip_anim(weapon_index: int):
 	
 	$Character_01/%GeneralSkeleton/LookAtModifier3D.set_active(false)
+	print(weapon_index)
 	match weapon_index:
 		0:
 			weapon_state_machine.travel("Lower Knife")
@@ -362,8 +363,9 @@ func _sync_unequip_anim(weapon_index: int):
 func _sync_equip_anim(weapon_index: int):
 	
 	$Character_01/%GeneralSkeleton/LookAtModifier3D.set_active(false)
+	print(current_weapon)
 	if !current_weapon:
-		$Character_01/AnimationTree.set("parameters/Blend2 3/blend_amount", 1)
+		$Character_01/AnimationPlayer.set("parameters/Blend2 3/blend_amount", 1)
 			
 	match weapon_index:
 		0:
@@ -383,7 +385,8 @@ func _sync_equip_anim(weapon_index: int):
 			weapon_4.visible = true
 			
 	await $Character_01/AnimationTree.animation_finished
-	$Character_01/%GeneralSkeleton/LookAtModifier3D.set_active(true)
+	#$Character_01/%GeneralSkeleton/LookAtModifier3D.set_active(true)
+	print($Character_01/GeneralSkeleton/LookAtModifier3D.active)
 	
 func add_new_weapon(new_weapon):
 	# If new weapon then it switches, if not ammo is obtained
