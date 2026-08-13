@@ -16,7 +16,7 @@ const BOB_AMPLITUDE = 0.08
 var bob_time = 0.0
 
 # Animation Tree
-@onready var animation_tree: AnimationTree = $player/AnimationTree
+@onready var animation_tree: AnimationTree = $Character_01/AnimationTree
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -38,7 +38,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var weapon_4 = get_node("Character_01/GeneralSkeleton/BoneAttachment3D/Super Shotgun")
 
 @onready var current_weapon = null
-@onready var weapons = [weapon_0, weapon_1]
+@onready var weapons = [weapon_0]
 
 var weapon_index_map: Dictionary = {}
 var index_weapon_map: Dictionary = {}
@@ -47,8 +47,8 @@ var index_weapon_map: Dictionary = {}
 var multiplayer_id: int
 
 # Animations
-@onready var base_state_machine = $player/AnimationTree.get("parameters/BaseStateMachine/playback")
-@onready var weapon_state_machine = $player/AnimationTree.get("parameters/WeaponStateMachine/playback")
+@onready var base_state_machine = animation_tree.get("parameters/BaseStateMachine/playback")
+@onready var weapon_state_machine = animation_tree.get("parameters/WeaponStateMachine/playback")
 
 # Signals
 signal weapon_message(weapon)
@@ -80,8 +80,8 @@ func _ready():
 	weapon_3.set_to_hud_visibility()
 	weapon_4.set_to_hud_visibility()
 	
-	$player/Armature/Skeleton3D/Character_14.set_layer_mask_value(1, false)
-	$player/Armature/Skeleton3D/Character_14.set_layer_mask_value(2, true)
+	$Character_01/GeneralSkeleton/Character_01.set_layer_mask_value(1, false)
+	$Character_01/GeneralSkeleton/Character_01.set_layer_mask_value(2, true)
 		
 	switch_weapon(current_weapon)
 
@@ -307,7 +307,7 @@ func switch_weapon(new_weapon):
 			if !weapon_state_machine.get_current_node().contains("Idle"):
 				return
 			unequip_weapon()
-			await $player/AnimationTree.animation_finished
+			await animation_tree.animation_finished
 			
 		equip_weapon(new_weapon)
 		
@@ -335,38 +335,36 @@ func equip_weapon(weapon):
 @rpc("any_peer", "call_local", "reliable")
 func _sync_unequip_anim(weapon_index: int):
 	
-	$Character_01/%GeneralSkeleton/LookAtModifier3D.set_active(false)
-	print(weapon_index)
 	match weapon_index:
 		0:
 			weapon_state_machine.travel("Lower Knife")
-			await $player/AnimationTree.animation_finished
+			var time = $Character_01/AnimationPlayer.get_animation("Raise Knife").length
+			await get_tree().create_timer(time).timeout
 			weapon_0.visible = false
 		1:
 			weapon_state_machine.travel("Lower Pistol")
-			await $player/AnimationTree.animation_finished
+			var time = $Character_01/AnimationPlayer.get_animation("Raise Pistol").length
+			await get_tree().create_timer(time).timeout
 			weapon_1.visible = false
 		2:
 			weapon_state_machine.travel("Lower Auto")
-			await $player/AnimationTree.animation_finished
+			var time = $Character_01/AnimationPlayer.get_animation("Raise Auto").length
+			await get_tree().create_timer(time).timeout
 			weapon_2.visible = false
 		3:
 			weapon_state_machine.travel("Lower Shotgun")
-			await $player/AnimationTree.animation_finished
+			var time = $Character_01/AnimationPlayer.get_animation("Raise Shotgun").length
+			await get_tree().create_timer(time).timeout
 			weapon_3.visible = false
 		4:
 			weapon_state_machine.travel("Lower Super Shotgun")
-			await $player/AnimationTree.animation_finished
+			var time = $Character_01/AnimationPlayer.get_animation("Raise Super Shotgun").length
+			await get_tree().create_timer(time).timeout
 			weapon_4.visible = false
 
 @rpc("any_peer", "call_local", "reliable")
 func _sync_equip_anim(weapon_index: int):
 	
-	$Character_01/%GeneralSkeleton/LookAtModifier3D.set_active(false)
-	print(current_weapon)
-	if !current_weapon:
-		$player/AnimationPlayer.set("parameters/Blend2 3/blend_amount", 1)
-			
 	match weapon_index:
 		0:
 			weapon_state_machine.travel("Raise Knife")
@@ -384,9 +382,7 @@ func _sync_equip_anim(weapon_index: int):
 			weapon_state_machine.travel("Raise Super Shotgun")
 			weapon_4.visible = true
 			
-	await $player/AnimationTree.animation_finished
-	#$Character_01/%GeneralSkeleton/LookAtModifier3D.set_active(true)
-	print($Character_01/GeneralSkeleton/LookAtModifier3D.active)
+	await animation_tree.animation_finished
 	
 func add_new_weapon(new_weapon):
 	# If new weapon then it switches, if not ammo is obtained
