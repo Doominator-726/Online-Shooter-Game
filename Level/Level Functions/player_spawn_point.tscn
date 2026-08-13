@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://p7eg1wkojvn7"]
+
+[ext_resource type="Script" uid="uid://btqp5lnfrg7iy" path="res://Level/Level Functions/player_spawn_point.gd" id="1_jv8c0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_48qoh"]
+radius = 0.8540039
+height = 2.2387695
+
+[node name="Player Spawn Point" type="Marker3D" unique_id=451830761 groups=["Player Spawns"]]
+script = ExtResource("1_jv8c0")
+
+[node name="Cooldown Timer" type="Timer" parent="." unique_id=1853679490]
+wait_time = 2.5
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1609198674]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1787725232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.119384766, 0)
+shape = SubResource("CapsuleShape3D_48qoh")
+
+[connection signal="timeout" from="Cooldown Timer" to="." method="_on_cooldown_timer_timeout"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

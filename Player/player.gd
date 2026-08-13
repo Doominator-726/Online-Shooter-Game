@@ -171,12 +171,6 @@ func _physics_process(delta):
 	else:
 		_sync_switch_state(falling, moving)
 		
-	# Crouching
-	if Input.is_action_just_pressed("Crouch"):
-		$AnimationPlayer.play("Crouch")
-	elif Input.is_action_just_released("Crouch"):
-		$AnimationPlayer.play_backwards("Crouch")
-		
 	# Flashlight
 	if Input.is_action_just_pressed("Flashlight"):
 		$Head/Camera3D/Flashlight.visible = !$Head/Camera3D/Flashlight.visible
@@ -450,3 +444,7 @@ func use_ammo():
 func set_username(username: String):
 	$"Name Tag".text = username
 	
+@rpc("any_peer", "call_local")
+func set_posrot(pos, rot):
+	global_position = pos
+	global_rotation = rot

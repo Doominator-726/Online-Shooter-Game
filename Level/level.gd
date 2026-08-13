@@ -17,8 +17,8 @@ func create_server() -> void:
 	
 	add_player()
 	
-	#add_bot(Vector3(-12.54, -0.989, 8.976))
-	#add_bot(Vector3(1.453, -3.412, 0))
+	add_bot()
+	add_bot()
 	
 func join_server() -> void:
 	peer.create_client("127.0.0.1", 1027)
@@ -27,9 +27,15 @@ func join_server() -> void:
 func add_player(id = 1):
 	var player = player_scene.instantiate()
 	player.name = str(id)
-	call_deferred("add_child", player)
 	
-func add_bot(spawn_pos: Vector3):
+	var spawn = await find_unoccupied_spawn()
+	
+	# Place player at spawn
+	add_child(player)
+	await get_tree().process_frame
+	player.rpc_id(id, "set_posrot", spawn.global_position, spawn.global_rotation)
+	
+func add_bot():
 	if not multiplayer.is_server():
 		return
 		
@@ -40,8 +46,23 @@ func add_bot(spawn_pos: Vector3):
 	add_child(bot)
 	await get_tree().process_frame
 	
-	bot.global_position = spawn_pos
+	var spawn = await find_unoccupied_spawn()
 	
+	bot.global_position = spawn.global_position
+	bot.global_rotation = spawn.global_rotation
+	
+func find_unoccupied_spawn():
+	
+	# Search all spawn points.
+	var spawn_found = false
+	while !spawn_found:
+		for spawn in get_tree().get_nodes_in_group("Player Spawns"):
+			if !spawn.occupied:
+				return spawn
+				
+		# If no spawn available, wait and repeat
+		await get_tree().create_timer(1.0).timeout
+		
 func exit_game(id):
 	multiplayer.peer_disconnected.connect(del_player)
 	del_player(id)
@@ -52,3 +73,4 @@ func del_player(id):
 @rpc("any_peer", "call_local")
 func _del_player(id):
 	get_node(str(id)).queue_free()
+	
