@@ -40,6 +40,9 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var current_weapon = null
 @onready var weapons = [weapon_0]
 
+var weapon_anim_key_map: Dictionary = {}
+var weapon_attack_anim_map: Dictionary = {}
+
 var weapon_index_map: Dictionary = {}
 var index_weapon_map: Dictionary = {}
 
@@ -52,7 +55,7 @@ var multiplayer_id: int
 
 # Signals
 signal weapon_message(weapon)
-signal player_death
+signal respawn(player)
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
@@ -179,6 +182,7 @@ func _physics_process(delta):
 	# Handles Weaponary 
 	if Input.is_action_just_pressed("weapon_zero"):
 		rpc("_sync_switch_weapon", 0)
+		print(1)
 	elif Input.is_action_just_pressed("weapon_one"):
 		rpc("_sync_switch_weapon", 1)
 	elif Input.is_action_just_pressed("weapon_two"):
@@ -245,17 +249,44 @@ func take_damage(damage):
 		Globals.player_armor -= armor_damage
 		
 		if Globals.player_health < 0:
-			player_death.emit()
+			die()
 		else:
 			$Pain.play()
 			
-			
+func die():
+	rpc("_sync_die")
+
+@rpc("any_peer", "call_local", "reliable")
+func _sync_die():
+	
+	Globals.player_health = 100
+	Globals.player_armor = 0
+	
+	weapons = [weapon_0]
+	
+	respawn.emit(self)
+	
 func _build_weapon_maps():
 	weapon_index_map = {
 		weapon_0: 0, weapon_1: 1, weapon_2: 2, weapon_3: 3, weapon_4: 4
 	}
 	index_weapon_map = {
 		0: weapon_0, 1: weapon_1, 2: weapon_2, 3: weapon_3, 4: weapon_4
+	}
+	
+	weapon_anim_key_map = {
+		weapon_0: "Knife",
+		weapon_1: "Pistol",
+		weapon_2: "Shotgun",
+		weapon_3: "Auto",
+		weapon_4: "Super Shotgun"
+	}
+	weapon_attack_anim_map = {
+		weapon_0: "Melee Attack",
+		weapon_1: "Pistol Shoot",
+		weapon_2: "Shotgun Shoot",
+		weapon_3: "Auto Shoot",
+		weapon_4: "Super Shotgun Shoot"
 	}
 	
 @rpc("any_peer", "call_local", "reliable")
@@ -286,7 +317,6 @@ func _sync_switch_weapon(weapon_index: int):
 	
 	# Return if not server so other players don't equip weapon
 	if not is_multiplayer_authority(): return
-	
 	var weapon = index_weapon_map.get(weapon_index)
 	if weapon:
 		switch_weapon(weapon)
@@ -296,22 +326,20 @@ func switch_weapon(new_weapon):
 	# If you switch to a new weapon you have, it will unequip the current one and equip a new one
 	# Also makes sure switch does not happen while animation is playing
 	if new_weapon in weapons and current_weapon != new_weapon:
-		
 		if current_weapon:
 			if !weapon_state_machine.get_current_node().contains("Idle"):
 				return
 			unequip_weapon()
 			await animation_tree.animation_finished
-			
 		equip_weapon(new_weapon)
 		
-func unequip_weapon():
+func unequip_weapon(skip_anim=false):
 	var idx = weapon_index_map.get(current_weapon, -1)
 	if idx != -1:
 		if is_multiplayer_authority():
-			rpc("_sync_unequip_anim", idx)
+			rpc("_sync_unequip_anim", idx, skip_anim)
 		else:
-			_sync_unequip_anim(idx)
+			_sync_unequip_anim(idx, skip_anim)
 	current_weapon.is_selected = false
 	
 func equip_weapon(weapon):
@@ -327,55 +355,40 @@ func equip_weapon(weapon):
 	current_weapon.is_selected = true
 	
 @rpc("any_peer", "call_local", "reliable")
-func _sync_unequip_anim(weapon_index: int):
+func _sync_unequip_anim(weapon_index: int, skip_anim: bool):
 	
-	match weapon_index:
-		0:
-			weapon_state_machine.travel("Lower Knife")
-			var time = $Character_01/AnimationPlayer.get_animation("Raise Knife").length
-			await get_tree().create_timer(time).timeout
-			weapon_0.visible = false
-		1:
-			weapon_state_machine.travel("Lower Pistol")
-			var time = $Character_01/AnimationPlayer.get_animation("Raise Pistol").length
-			await get_tree().create_timer(time).timeout
-			weapon_1.visible = false
-		2:
-			weapon_state_machine.travel("Lower Auto")
-			var time = $Character_01/AnimationPlayer.get_animation("Raise Auto").length
-			await get_tree().create_timer(time).timeout
-			weapon_2.visible = false
-		3:
-			weapon_state_machine.travel("Lower Shotgun")
-			var time = $Character_01/AnimationPlayer.get_animation("Raise Shotgun").length
-			await get_tree().create_timer(time).timeout
-			weapon_3.visible = false
-		4:
-			weapon_state_machine.travel("Lower Super Shotgun")
-			var time = $Character_01/AnimationPlayer.get_animation("Raise Super Shotgun").length
-			await get_tree().create_timer(time).timeout
-			weapon_4.visible = false
-
+	var weapon = index_weapon_map.get(weapon_index)
+	var anim_key = weapon_anim_key_map.get(weapon)
+	
+	if not anim_key:
+		return
+	if anim_key == "Super Shotgun":
+		anim_key = "Shotgun"
+		
+	weapon_state_machine.travel("Lower " + anim_key)
+	var time = $Character_01/AnimationPlayer.get_animation("Raise " + anim_key).length
+	
+	if !skip_anim:
+		await get_tree().create_timer(time).timeout
+	else:
+		$Character_01/AnimationPlayer.advance(time)
+	
+	weapon.visible = false
+	
 @rpc("any_peer", "call_local", "reliable")
 func _sync_equip_anim(weapon_index: int):
 	
-	match weapon_index:
-		0:
-			weapon_state_machine.travel("Raise Knife")
-			weapon_0.visible = true
-		1:
-			weapon_state_machine.travel("Raise Pistol")
-			weapon_1.visible = true
-		2:
-			weapon_state_machine.travel("Raise Auto")
-			weapon_2.visible = true
-		3:
-			weapon_state_machine.travel("Raise Shotgun")
-			weapon_3.visible = true
-		4:
-			weapon_state_machine.travel("Raise Super Shotgun")
-			weapon_4.visible = true
-			
+	var weapon = index_weapon_map.get(weapon_index)
+	var anim_key = weapon_anim_key_map.get(weapon)
+	
+	if not anim_key:
+		return
+	if anim_key == "Super Shotgun":
+		anim_key = "Shotgun"
+		
+	weapon_state_machine.travel("Raise " + anim_key)
+	weapon.visible = true
+	
 	await animation_tree.animation_finished
 	
 func add_new_weapon(new_weapon):

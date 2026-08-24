@@ -5,6 +5,7 @@ var peer = ENetMultiplayerPeer.new()
 @export var bot_scene: PackedScene
 
 func _ready() -> void:
+	
 	if Globals.creating_server:
 		create_server()
 	else:
@@ -16,9 +17,7 @@ func create_server() -> void:
 	multiplayer.peer_connected.connect(add_player)
 	
 	add_player()
-	
-	add_bot()
-	add_bot()
+	#populate_bots(3)
 	
 func join_server() -> void:
 	peer.create_client("127.0.0.1", 1027)
@@ -28,6 +27,8 @@ func add_player(id = 1):
 	var player = player_scene.instantiate()
 	player.name = str(id)
 	
+	player.connect("respawn", respawn_player)
+	
 	var spawn = await find_unoccupied_spawn()
 	
 	# Place player at spawn
@@ -35,6 +36,10 @@ func add_player(id = 1):
 	await get_tree().process_frame
 	player.rpc_id(id, "set_posrot", spawn.global_position, spawn.global_rotation)
 	
+func populate_bots(num = 0):
+	for i in range(num):
+		add_bot()
+		
 func add_bot():
 	if not multiplayer.is_server():
 		return
@@ -43,13 +48,27 @@ func add_bot():
 	bot.name = "Bot_" + str(randi())
 	bot.username = "Bot_" + str(randi())
 	
+	bot.connect("respawn", respawn_player)
+	var spawn = await find_unoccupied_spawn()
+	
 	add_child(bot)
 	await get_tree().process_frame
 	
-	var spawn = await find_unoccupied_spawn()
-	
 	bot.global_position = spawn.global_position
 	bot.global_rotation = spawn.global_rotation
+	
+	await get_tree().process_frame
+	
+func respawn_player(player):
+	# (Also used to respawn bots)
+	
+	var spawn = await find_unoccupied_spawn()
+	
+	player.global_position = spawn.global_position
+	player.global_rotation = spawn.global_rotation
+	
+	player.base_state_machine.travel("RESET")
+	player.weapon_state_machine.travel("RESET")
 	
 func find_unoccupied_spawn():
 	
@@ -58,6 +77,7 @@ func find_unoccupied_spawn():
 	while !spawn_found:
 		for spawn in get_tree().get_nodes_in_group("Player Spawns"):
 			if !spawn.occupied:
+				spawn.occupied = true
 				return spawn
 				
 		# If no spawn available, wait and repeat

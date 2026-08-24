@@ -92,9 +92,4 @@ func switch_pause_menu():
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-func _on_player_real_life_player_death():
-	
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	get_tree().change_scene_to_file("res://UI/Menus/Death Screen/death_screen.tscn")
-	
+		
