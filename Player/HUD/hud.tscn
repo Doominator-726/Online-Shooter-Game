@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://sxr31gxsmf71" path="res://Pixabay Sfx/UI/Button Hover/button_hover.mp3" id="2_xtdgy"]
 [ext_resource type="AudioStream" uid="uid://bj32a625qgbkd" path="res://Pixabay Sfx/UI/Button Select/button_select.mp3" id="3_1aaf1"]
 [ext_resource type="FontFile" uid="uid://bepok42yit5l8" path="res://Graphics/Fonts/Bring Me A Helicopter!.otf" id="3_blv8b"]
+[ext_resource type="PackedScene" uid="uid://bcdl56kvnakv2" path="res://Player/HUD/score_board.tscn" id="4_37ho8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s5mkn"]
 font = ExtResource("3_blv8b")
@@ -127,6 +128,27 @@ label_settings = SubResource("LabelSettings_hphpx")
 [node name="displayTimer" type="Timer" parent="Combat Hud/Message" unique_id=152373495]
 wait_time = 2.0
 one_shot = true
+
+[node name="Death" type="Control" parent="." unique_id=1842065473]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Death" unique_id=1595936230]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Score Board" parent="." unique_id=2054850199 instance=ExtResource("4_37ho8")]
+mouse_filter = 2
 
 [node name="Pause Menu" type="Control" parent="." unique_id=715889807]
 visible = false

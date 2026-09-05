@@ -51,7 +51,6 @@ var multiplayer_id: int
 var username = Globals.username
 var health = Globals.player_health
 var armor = Globals.player_armor
-var kills = 0
 
 # Animations
 @onready var base_state_machine = animation_tree.get("parameters/BaseStateMachine/playback")
@@ -60,6 +59,7 @@ var kills = 0
 # Signals
 signal weapon_message(weapon)
 signal respawn(player)
+signal update_scoreboard()
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(name.to_int())
@@ -112,8 +112,8 @@ func _physics_process(delta):
 	
 	if not is_multiplayer_authority(): return
 	
-	Globals.player_health = health
-	Globals.player_armor = armor
+	health = Globals.player_armor
+	armor = Globals.player_armor
 	Globals.player_position = global_position
 	
 	# Headbob
@@ -234,18 +234,15 @@ func _physics_process(delta):
 			# Checks that animations are finished and that there's enough ammo
 			if weapon_state_machine.get_current_node().contains("Idle") and use_ammo():
 				
-				current_weapon.shoot_weapon(shoot_target, Globals.is_shoot_target_detected)
-				print("check", self)
-				if target_shootable and shoot_target.health <= 0:
-					kills += 1
-					
+				current_weapon.shoot_weapon(shoot_target, Globals.is_shoot_target_detected, username)
+				
 				if is_multiplayer_authority():
 					rpc("weapon_attack_anim", weapon_index_map[current_weapon])
 				else:
 					weapon_attack_anim(weapon_index_map[current_weapon])
 					
 @rpc("any_peer", "call_local", "reliable")
-func take_damage(damage):
+func take_damage(damage, killer_name):
 	
 	if !god_mode:
 		
@@ -258,6 +255,7 @@ func take_damage(damage):
 		
 		if health <= 0:
 			die()
+			update_scoreboard.emit(killer_name)
 		else:
 			$Pain.play()
 			
@@ -267,26 +265,22 @@ func die():
 @rpc("any_peer", "call_local", "reliable")
 func _sync_die():
 	
+	visible = false
+	$CollisionShape3D.disabled = true
+	
 	await get_tree().process_frame # Away frame so kill can be processed for other players
-	print("health reset", self)
-	health = 100
-	armor = 0
 	
-	if is_multiplayer_authority():
-		Globals.player_health = health
-		Globals.player_armor = armor
+	Globals.is_alive = false
+	$"Death Timeout Timer".start()
 	
-	if current_weapon:
-		print(current_weapon)
-		current_weapon.visible = false
-		current_weapon = null
+func reappear():
+	_sync_respawn()
 	
-	weapons = [weapon_0]
-	
-	base_state_machine.travel("RESET")
-	weapon_state_machine.travel("RESET")
-	
-	respawn.emit(self)
+@rpc("any_peer", "call_local", "reliable")
+func _sync_respawn():
+	Globals.is_alive = true
+	visible = true
+	$CollisionShape3D.disabled = false
 	
 func _build_weapon_maps():
 	weapon_index_map = {
@@ -372,6 +366,7 @@ func equip_weapon(weapon):
 			rpc("_sync_equip_anim", idx)
 		else:
 			_sync_equip_anim(idx)
+			
 	Globals.player_ammo_type = weapon.ammo_type
 	current_weapon = weapon
 	current_weapon.is_selected = true
@@ -496,3 +491,23 @@ func set_username(given_name: String, taken_names):
 func set_posrot(pos, rot):
 	global_position = pos
 	global_rotation = rot
+	
+func _on_death_timeout_timer_timeout() -> void:
+	
+	health = 100
+	armor = 0
+	
+	if is_multiplayer_authority():
+		Globals.player_health = health
+		Globals.player_armor = armor
+	
+	if current_weapon:
+		current_weapon.visible = false
+		current_weapon = null
+	
+	weapons = [weapon_0]
+	
+	base_state_machine.travel("RESET")
+	weapon_state_machine.travel("RESET")
+	
+	respawn.emit(self)

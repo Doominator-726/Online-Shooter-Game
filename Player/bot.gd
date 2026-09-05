@@ -43,13 +43,13 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 # Multiplayer
 var multiplayer_id: int
 var username = "Bot: " + str(multiplayer_id)
-var kills = 0
 
 # How each target position for shots will be offset to introduce inaccuracy
 var aim_offset = Vector3(0, 0, 0)
 const aim_offset_amount: float = 0.25 
 
 signal respawn(bot)
+signal update_scoreboard()
 
 func _enter_tree():
 	set_multiplayer_authority(1)
@@ -120,10 +120,7 @@ func navigate(_delta):
 				
 				# Checks that animations are finished and that there's enough ammo. If latter is true, then func uses it
 				if can_attack() and weapon_state_machine.get_current_node().contains("Idle") and has_ammo(current_weapon, true):
-					current_weapon.shoot_weapon(target, true)
-					if target.health <= 0:
-						kills += 1
-					
+					current_weapon.shoot_weapon(target, true, username)
 					rpc("weapon_attack_anim", weapon_index_map[current_weapon])
 	else:
 		# No target: stop drifting on old velocity instead of sliding forever
@@ -215,7 +212,7 @@ func switch_to_best_weapon():
 	rpc("_sync_switch_weapon", best_weapon_index)
 	
 @rpc("any_peer", "call_local", "reliable")
-func take_damage(damage):
+func take_damage(damage, killer_name):
 	
 	# Calculates Damage To Bot Based On Armor
 	var armor_resist = (0.75 * damage)
@@ -226,6 +223,7 @@ func take_damage(damage):
 	
 	if health <= 0:
 		die()
+		update_scoreboard.emit(killer_name)
 	else:
 		$Pain.play()
 		
@@ -464,6 +462,15 @@ func _on_item_pickup_area_body_entered(body: Node3D) -> void:
 	# Picks Up Object If It Is A Pickup
 	if "weapon" in body:
 		add_new_weapon(body.weapon)
+	else:
+		health += body.health_amount
+		armor += body.armor_amount
+		
+		if body.ammo_type == "Bullets":
+			bullets += body.ammo_amount
+		else:
+			shells += body.ammo_amount
+	
 	body.rpc("activate")
 	
 func _on_retreat_timer_timeout() -> void:

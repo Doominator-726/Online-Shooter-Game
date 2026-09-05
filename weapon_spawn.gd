@@ -8,6 +8,10 @@ func _ready() -> void:
 	$"Respawn Timer".connect("timeout", respawn_item)
 	
 func respawn_item():
+	rpc("_sync_respawn_item")
+	
+@rpc("any_peer", "call_local", "reliable")
+func _sync_respawn_item():
 	
 	if $Spawn.get_child_count() == 0:
 		var spawned_item = item.instantiate()

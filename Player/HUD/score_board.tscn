@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dycque3rjbfsd" path="res://Player/HUD/score_board.gd" id="1_uusf6"]
 
-[node name="Score Board" type="Control" unique_id=2054850199]
+[node name="Scoreboard" type="Control" unique_id=2054850199]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

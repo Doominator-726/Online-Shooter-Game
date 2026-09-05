@@ -360,7 +360,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3269053, -3.38864, 4.699713
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2423306, -3.3886395, 4.356673)
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1361455208]
-_spawnable_scenes = PackedStringArray("uid://yf20xiwmnp0i", "uid://dvdldv4saky53")
+_spawnable_scenes = PackedStringArray("uid://yf20xiwmnp0i", "uid://dvdldv4saky53", "uid://b5ke3q4brmt1x", "uid://doerdemrex40u")
 spawn_path = NodePath("..")
 
 [node name="manhole_cover" parent="." unique_id=677574303 instance=ExtResource("17_4c15r")]

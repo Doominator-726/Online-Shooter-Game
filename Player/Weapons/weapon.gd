@@ -15,7 +15,7 @@ func set_to_hud_visibility():
 	weapon_model.set_layer_mask_value(1, false)
 	weapon_model.set_layer_mask_value(2, true)
 	
-func shoot_weapon(target, target_damagable):
+func shoot_weapon(target, target_damagable, killer_name):
 	$"Attack Sound".play()
 		
 	rpc("_sync_shoot_anim")
@@ -24,7 +24,7 @@ func shoot_weapon(target, target_damagable):
 	if target_damagable and target:
 		if "take_damage" in target:
 			# Enemy Damage, returns true if target  is killed
-			target.rpc_id(target.multiplayer_id, "take_damage", damage)
+			target.rpc_id(target.multiplayer_id, "take_damage", damage, killer_name)
 		else:
 			# Object Damage
 			target.activate(damage)

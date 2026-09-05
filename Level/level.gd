@@ -18,7 +18,7 @@ func create_server() -> void:
 	multiplayer.multiplayer_peer = peer
 	multiplayer.peer_connected.connect(add_player)
 	
-	populate_bots(0)
+	populate_bots(2)
 	add_player()
 	
 func join_server() -> void:
@@ -41,6 +41,7 @@ func add_player(id = 1):
 	player.rpc_id(id, "set_username", player.username, taken_names)
 	
 	taken_names.append(player.username)
+	Globals.populate_scoreboard.emit()
 	
 func populate_bots(num = 0):
 	for i in range(num):
@@ -68,16 +69,23 @@ func add_bot(num):
 	await get_tree().process_frame
 	
 func respawn_player(player):
-	rpc("sync_respawn", player)
+	rpc("sync_respawn", player.get_path())
 	
 @rpc("any_peer", "call_local")
-func sync_respawn(player):
+func sync_respawn(player_path):
 	# (Also used to respawn bots)
 	
 	var spawn = await find_unoccupied_spawn()
 	
+	var player = get_node(player_path)
+	if player == null:
+		return
+		
 	player.global_position = spawn.global_position
 	player.global_rotation = spawn.global_rotation
+	
+	if player.is_in_group("player"):
+		player.reappear()
 	
 func find_unoccupied_spawn():
 	

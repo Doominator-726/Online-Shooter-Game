@@ -14,6 +14,9 @@ func _ready():
 	Globals.connect('player_health_changed', update_player_health)
 	Globals.connect('player_armor_changed', update_player_armor)
 	
+	# Updates Death Signal
+	Globals.connect("death_status_change", update_death_screen)
+	
 	# Connect Button Sounds
 	for button in $"Pause Menu/Options".get_children():
 		button.connect("mouse_entered", $"Button Hover Sound".play)
@@ -54,10 +57,11 @@ func update_player_armor(change=0):
 	$"Combat Hud/Player Stats/Armor/Armor Count".text = str(Globals.player_armor + change)
 	if change > 0: display_message("Got " + str(change) + " Armor")
 	
-func _unhandled_input(_event):
+func _unhandled_input(event):
 	
-	if Input.is_action_just_pressed("Pause"):
+	if event.is_action_pressed("Pause"):
 		# Pauses Game
+		print("!")
 		switch_pause_menu()
 
 func display_message(text):
@@ -84,6 +88,7 @@ func switch_pause_menu():
 	
 	Globals.pause_menu_open = !Globals.pause_menu_open
 	
+	print($"Pause Menu".visible)
 	# Pauses/Unpauses game depending on if it is already paused or unpaused
 	$"Combat Hud".visible = !$"Combat Hud".visible
 	$"Pause Menu".visible = !$"Pause Menu".visible
@@ -93,3 +98,5 @@ func switch_pause_menu():
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		
+func update_death_screen():
+	$Death.visible = !Globals.is_alive

@@ -20,6 +20,7 @@ func activate():
 		
 		$"Pickup Sound".play()
 	else:
+		await get_tree().process_frame # Process rpc stuff
 		queue_free()
 	
 func pick_up():

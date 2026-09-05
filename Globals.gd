@@ -18,6 +18,13 @@ var pause_menu_open = false
 var creating_server: bool = false
 var username: String = "Default Username"
 
+# Scoreboard
+var scoreboard = []
+signal populate_scoreboard()
+
+# Death
+signal death_status_change()
+
 # Is an interactable object being selected
 var is_object_detected: bool = false:
 	
@@ -37,12 +44,12 @@ var is_shoot_target_detected: bool = false:
 		
 # Player Stats
 var player_position: Vector3
-var player_health: int = 100:
+var player_health: int = 500:
 	
 	set(value):
 		
 		# Gets new health value that cannot exceed 100, if there is a new value, it updates UI and the value
-		var new_value = min(value, 100)
+		var new_value = min(value, 500)
 		if new_value != player_health:
 			
 			player_health_changed.emit(new_value - player_health)
@@ -82,3 +89,7 @@ var player_ammo_type: String = " ":
 		player_ammo_type = value
 		ammo_type_changed.emit()
 		
+var is_alive: bool = true:
+	set(value):
+		is_alive = value
+		death_status_change.emit()

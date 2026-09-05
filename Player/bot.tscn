@@ -853,7 +853,6 @@ transitions = ["Raise Knife", "Knife Idle", SubResource("AnimationNodeStateMachi
 graph_offset = Vector2(-33.763397, -72.10231)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_qpknu"]
-graph_offset = Vector2(-1333.8999, 817.5)
 nodes/output/position = Vector2(-400, 880)
 nodes/BaseStateMachine/node = SubResource("AnimationNodeStateMachine_5htga")
 nodes/BaseStateMachine/position = Vector2(-940, 900)
@@ -915,6 +914,7 @@ properties/1/replication_mode = 1
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_s8ytb")
+health = 500
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1742654334]
 shape = SubResource("CapsuleShape3D_cm548")
@@ -1252,7 +1252,7 @@ autostart = true
 [node name="BeehaveTree" type="Node" parent="." unique_id=1256497533 node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("2_4tjsj")
 enabled = false
-blackboard = NodePath("@Node@24222")
+blackboard = NodePath("@Node@47859")
 actor = NodePath("../NavigationAgent3D")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 

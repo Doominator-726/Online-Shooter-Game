@@ -12,7 +12,6 @@
 [ext_resource type="AudioStream" uid="uid://beh61ja1fofgb" path="res://Pixabay Sfx/hurt.mp3" id="9_x3vf3"]
 [ext_resource type="AudioStream" uid="uid://cuhcjsvhid2t5" path="res://Pixabay Sfx/flashlight_toggle.mp3" id="10_apopc"]
 [ext_resource type="PackedScene" uid="uid://cttnluwsjb6j7" path="res://Player/HUD/hud.tscn" id="11_apopc"]
-[ext_resource type="PackedScene" uid="uid://bcdl56kvnakv2" path="res://Player/HUD/score_board.tscn" id="13_p5o4e"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ek1cg"]
 radius = 0.5024414
@@ -1246,4 +1245,8 @@ text = "Test Text"
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1940280033]
 replication_config = SubResource("SceneReplicationConfig_apopc")
 
-[node name="Score Board" parent="." unique_id=2054850199 instance=ExtResource("13_p5o4e")]
+[node name="Death Timeout Timer" type="Timer" parent="." unique_id=959026037]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Death Timeout Timer" to="." method="_on_death_timeout_timer_timeout"]
