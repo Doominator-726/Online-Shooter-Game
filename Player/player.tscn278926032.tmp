@@ -627,7 +627,7 @@ _data = {
 animation = &"Fall"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p5o4e"]
-animation = &"Idle"
+animation = &"Auto Idle"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c6x0f"]
 animation = &"RESET"
@@ -694,9 +694,6 @@ animation = &"Auto Idle"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o28un"]
 animation = &"Auto Shoot"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qs4pp"]
-animation = &"Idle"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dkpta"]
 animation = &"Knife Idle"
@@ -801,20 +798,12 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_iyprq"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_efx54"]
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_p5o4e"]
 "states/Auto Idle/node" = SubResource("AnimationNodeAnimation_b1ygp")
 "states/Auto Idle/position" = Vector2(332, 230.56352)
 "states/Auto Shoot/node" = SubResource("AnimationNodeAnimation_o28un")
 "states/Auto Shoot/position" = Vector2(332, 314.56354)
 states/End/position = Vector2(203, -1)
-states/Idle/node = SubResource("AnimationNodeAnimation_qs4pp")
-states/Idle/position = Vector2(459.2366, -48.098106)
 "states/Knife Idle/node" = SubResource("AnimationNodeAnimation_dkpta")
 "states/Knife Idle/position" = Vector2(332, 60)
 "states/Lower Auto/node" = SubResource("AnimationNodeAnimation_i4o1l")
@@ -834,7 +823,7 @@ states/Idle/position = Vector2(459.2366, -48.098106)
 "states/Pistol Shoot/node" = SubResource("AnimationNodeAnimation_pisgm")
 "states/Pistol Shoot/position" = Vector2(688, 147)
 states/RESET/node = SubResource("AnimationNodeAnimation_jp1hh")
-states/RESET/position = Vector2(321.2366, -48.098106)
+states/RESET/position = Vector2(318.2366, -52.66295)
 "states/Raise Auto/node" = SubResource("AnimationNodeAnimation_j2n6q")
 "states/Raise Auto/position" = Vector2(492, 230.56352)
 "states/Raise Knife/node" = SubResource("AnimationNodeAnimation_lfmf2")
@@ -854,11 +843,11 @@ states/Start/position = Vector2(203, 60)
 "states/Super Shotgun Idle/position" = Vector2(332, 420.14917)
 "states/Super Shotgun Shoot/node" = SubResource("AnimationNodeAnimation_8viyr")
 "states/Super Shotgun Shoot/position" = Vector2(332, 502.3149)
-transitions = ["Raise Knife", "Knife Idle", SubResource("AnimationNodeStateMachineTransition_o28un"), "Melee Attack", "Knife Idle", SubResource("AnimationNodeStateMachineTransition_7emwf"), "Raise Pistol", "Pistol Idle", SubResource("AnimationNodeStateMachineTransition_8viyr"), "Pistol Shoot", "Pistol Idle", SubResource("AnimationNodeStateMachineTransition_n471f"), "Raise Auto", "Auto Idle", SubResource("AnimationNodeStateMachineTransition_hshwv"), "Auto Shoot", "Auto Idle", SubResource("AnimationNodeStateMachineTransition_gpjlu"), "Raise Shotgun", "Shotgun Idle", SubResource("AnimationNodeStateMachineTransition_8mwp6"), "Shotgun Shoot", "Shotgun Idle", SubResource("AnimationNodeStateMachineTransition_qemgg"), "Raise Super Shotgun", "Super Shotgun Idle", SubResource("AnimationNodeStateMachineTransition_sm0op"), "Super Shotgun Shoot", "Super Shotgun Idle", SubResource("AnimationNodeStateMachineTransition_76lrf"), "RESET", "Idle", SubResource("AnimationNodeStateMachineTransition_iyprq"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_efx54")]
-graph_offset = Vector2(72.2366, -127.09811)
+transitions = ["Raise Knife", "Knife Idle", SubResource("AnimationNodeStateMachineTransition_o28un"), "Melee Attack", "Knife Idle", SubResource("AnimationNodeStateMachineTransition_7emwf"), "Raise Pistol", "Pistol Idle", SubResource("AnimationNodeStateMachineTransition_8viyr"), "Pistol Shoot", "Pistol Idle", SubResource("AnimationNodeStateMachineTransition_n471f"), "Raise Auto", "Auto Idle", SubResource("AnimationNodeStateMachineTransition_hshwv"), "Auto Shoot", "Auto Idle", SubResource("AnimationNodeStateMachineTransition_gpjlu"), "Raise Shotgun", "Shotgun Idle", SubResource("AnimationNodeStateMachineTransition_8mwp6"), "Shotgun Shoot", "Shotgun Idle", SubResource("AnimationNodeStateMachineTransition_qemgg"), "Raise Super Shotgun", "Super Shotgun Idle", SubResource("AnimationNodeStateMachineTransition_sm0op"), "Super Shotgun Shoot", "Super Shotgun Idle", SubResource("AnimationNodeStateMachineTransition_76lrf")]
+graph_offset = Vector2(72.2366, 25.337036)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_p5o4e"]
-graph_offset = Vector2(-1378.3, 1333.8412)
+graph_offset = Vector2(-879.8196, 415.63794)
 nodes/output/position = Vector2(-400, 880)
 nodes/BaseStateMachine/node = SubResource("AnimationNodeStateMachine_5htga")
 nodes/BaseStateMachine/position = Vector2(-940, 900)
@@ -886,6 +875,7 @@ properties/3/replication_mode = 1
 collision_layer = 2
 collision_mask = 31
 script = ExtResource("1_vtle1")
+god_mode = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1332557500]
 shape = SubResource("CapsuleShape3D_ek1cg")

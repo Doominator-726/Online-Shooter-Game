@@ -1,7 +1,5 @@
 extends CharacterBody3D
 
-@export var username = "Player Username"
-
 const JUMP_VELOCITY = 5.5
 
 # Stats
@@ -41,7 +39,11 @@ var retreating: bool = false
 @onready var weapon_state_machine = animation_tree.get("parameters/WeaponStateMachine/playback")
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+# Multiplayer
 var multiplayer_id: int
+var username = "Bot: " + str(multiplayer_id)
+var kills = 0
 
 # How each target position for shots will be offset to introduce inaccuracy
 var aim_offset = Vector3(0, 0, 0)
@@ -119,6 +121,8 @@ func navigate(_delta):
 				# Checks that animations are finished and that there's enough ammo. If latter is true, then func uses it
 				if can_attack() and weapon_state_machine.get_current_node().contains("Idle") and has_ammo(current_weapon, true):
 					current_weapon.shoot_weapon(target, true)
+					if target.health <= 0:
+						kills += 1
 					
 					rpc("weapon_attack_anim", weapon_index_map[current_weapon])
 	else:
@@ -231,16 +235,21 @@ func die():
 @rpc("any_peer", "call_local", "reliable")
 func _sync_die():
 	
+	await get_tree().process_frame # Away frame so kill can be processed for other players
+	
 	health = 100
 	armor = 0
-	
-	weapons = [weapon_0]
 	
 	if current_weapon:
 		current_weapon.visible = false
 		current_weapon = null
 	
 	weapon_0.visible = true
+	weapons = [weapon_0]
+	
+	base_state_machine.travel("RESET")
+	weapon_state_machine.travel("RESET")
+	
 	respawn.emit(self)
 	
 func _on_navigation_timer_timeout() -> void:

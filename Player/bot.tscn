@@ -853,7 +853,7 @@ transitions = ["Raise Knife", "Knife Idle", SubResource("AnimationNodeStateMachi
 graph_offset = Vector2(-33.763397, -72.10231)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_qpknu"]
-graph_offset = Vector2(-1121.2706, 626.3596)
+graph_offset = Vector2(-1333.8999, 817.5)
 nodes/output/position = Vector2(-400, 880)
 nodes/BaseStateMachine/node = SubResource("AnimationNodeStateMachine_5htga")
 nodes/BaseStateMachine/position = Vector2(-940, 900)
@@ -1178,6 +1178,9 @@ visible = false
 [node name="Pistol" parent="Character_01/GeneralSkeleton/BoneAttachment3D" unique_id=1280029128 instance=ExtResource("3_cmapo")]
 transform = Transform3D(0.813803, 1.7595468, -1.0862737, 0.023165867, 1.1595432, 1.8955684, 2.0677137, -0.70550656, 0.40629417, 0.06938493, -0.05841136, 0.1755575)
 visible = false
+damage = 25
+ammo_consumption = 1
+default_ammo_amount = 50
 
 [node name="Automatic Gun" parent="Character_01/GeneralSkeleton/BoneAttachment3D" unique_id=790685130 instance=ExtResource("4_52u1v")]
 transform = Transform3D(-1.3320533, 1.5644869, -0.84633285, 1.7667013, 1.2864596, -0.40256566, 0.20653404, -0.91415685, -2.0149233, 0.1841371, -0.16872013, 0.23042452)
@@ -1249,7 +1252,7 @@ autostart = true
 [node name="BeehaveTree" type="Node" parent="." unique_id=1256497533 node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("2_4tjsj")
 enabled = false
-blackboard = NodePath("@Node@18815")
+blackboard = NodePath("@Node@24222")
 actor = NodePath("../NavigationAgent3D")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Fighting Game"
 run/main_scene="uid://2kjwhmpovudv"
-config/features=PackedStringArray("4.6", "Mobile")
+config/features=PackedStringArray("4.7", "Mobile")
 config/icon="uid://ciro7bxh00eu1"
 
 [autoload]

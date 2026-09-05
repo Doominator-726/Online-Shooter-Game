@@ -23,11 +23,12 @@ func shoot_weapon(target, target_damagable):
 	# Checks for target and uses "take_damage" to decide whether a target is an enemy or object
 	if target_damagable and target:
 		if "take_damage" in target:
-			# Enemy Damage
+			# Enemy Damage, returns true if target  is killed
 			target.rpc_id(target.multiplayer_id, "take_damage", damage)
 		else:
 			# Object Damage
 			target.activate(damage)
+			
 				
 @rpc("any_peer", "call_local", "reliable")
 func _sync_shoot_anim():

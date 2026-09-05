@@ -48,6 +48,10 @@ var index_weapon_map: Dictionary = {}
 
 # Multiplayer
 var multiplayer_id: int
+var username = Globals.username
+var health = Globals.player_health
+var armor = Globals.player_armor
+var kills = 0
 
 # Animations
 @onready var base_state_machine = animation_tree.get("parameters/BaseStateMachine/playback")
@@ -70,7 +74,7 @@ func _ready():
 	
 	if not is_multiplayer_authority(): return
 	
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	# Connects All of The Weapon Pickup Signals When The Game Starts
 	for weapon in get_tree().get_nodes_in_group("pickupWeapons"):
@@ -100,15 +104,16 @@ func _unhandled_input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
 		
 func _process(_delta):
+	
 	if not is_multiplayer_authority(): return
 	subviewport_camera.set_global_transform(camera.get_global_transform())
 	
 func _physics_process(delta):
 	
-	set_username(Globals.username)
-	
 	if not is_multiplayer_authority(): return
 	
+	Globals.player_health = health
+	Globals.player_armor = armor
 	Globals.player_position = global_position
 	
 	# Headbob
@@ -182,7 +187,6 @@ func _physics_process(delta):
 	# Handles Weaponary 
 	if Input.is_action_just_pressed("weapon_zero"):
 		rpc("_sync_switch_weapon", 0)
-		print(1)
 	elif Input.is_action_just_pressed("weapon_one"):
 		rpc("_sync_switch_weapon", 1)
 	elif Input.is_action_just_pressed("weapon_two"):
@@ -229,8 +233,12 @@ func _physics_process(delta):
 			
 			# Checks that animations are finished and that there's enough ammo
 			if weapon_state_machine.get_current_node().contains("Idle") and use_ammo():
-				current_weapon.shoot_weapon(shoot_target, Globals.is_shoot_target_detected)
 				
+				current_weapon.shoot_weapon(shoot_target, Globals.is_shoot_target_detected)
+				print("check", self)
+				if target_shootable and shoot_target.health <= 0:
+					kills += 1
+					
 				if is_multiplayer_authority():
 					rpc("weapon_attack_anim", weapon_index_map[current_weapon])
 				else:
@@ -243,12 +251,12 @@ func take_damage(damage):
 		
 		# Calculates Damage To Player Based On Armor
 		var armor_resist = (0.75 * damage)
-		var armor_damage = min(armor_resist, Globals.player_armor) 
+		var armor_damage = min(armor_resist, armor)
 		
-		Globals.player_health -= damage - (damage * (armor_resist/100)) + (armor_resist - armor_damage)
-		Globals.player_armor -= armor_damage
+		health -= damage - (damage * (armor_resist/100)) + (armor_resist - armor_damage)
+		armor -= armor_damage
 		
-		if Globals.player_health < 0:
+		if health <= 0:
 			die()
 		else:
 			$Pain.play()
@@ -259,10 +267,24 @@ func die():
 @rpc("any_peer", "call_local", "reliable")
 func _sync_die():
 	
-	Globals.player_health = 100
-	Globals.player_armor = 0
+	await get_tree().process_frame # Away frame so kill can be processed for other players
+	print("health reset", self)
+	health = 100
+	armor = 0
+	
+	if is_multiplayer_authority():
+		Globals.player_health = health
+		Globals.player_armor = armor
+	
+	if current_weapon:
+		print(current_weapon)
+		current_weapon.visible = false
+		current_weapon = null
 	
 	weapons = [weapon_0]
+	
+	base_state_machine.travel("RESET")
+	weapon_state_machine.travel("RESET")
 	
 	respawn.emit(self)
 	
@@ -454,9 +476,22 @@ func use_ammo():
 			return true
 			
 @rpc("any_peer", "call_local", "reliable")
-func set_username(username: String):
-	$"Name Tag".text = username
+func set_username(given_name: String, taken_names):
 	
+	# Handle Username Dupes
+	if given_name.strip_edges() == "":
+		given_name = "Player"
+	var i = 0
+	var orignal_username = given_name
+	while true:
+		if given_name in taken_names:
+			i += 1
+			given_name = orignal_username + " (" + str(i) + ")" 
+		else:
+			username = given_name
+			$"Name Tag".text = given_name
+			break
+			
 @rpc("any_peer", "call_local")
 func set_posrot(pos, rot):
 	global_position = pos
